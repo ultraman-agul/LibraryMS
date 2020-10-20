@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sunny.UI;
 
 namespace LibraryMS
 {
-    public partial class Form1 : Sunny.UI.UIForm
+    public partial class Login : Sunny.UI.UIForm
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
