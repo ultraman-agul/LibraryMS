@@ -50,6 +50,7 @@
             this.uiAvatar1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiAvatar1.Name = "uiAvatar1";
             this.uiAvatar1.Size = new System.Drawing.Size(71, 66);
+            this.uiAvatar1.Style = Sunny.UI.UIStyle.Custom;
             this.uiAvatar1.Symbol = 62141;
             this.uiAvatar1.TabIndex = 0;
             this.uiAvatar1.Text = "uiAvatar1";
@@ -130,13 +131,13 @@
             this.uiSymbolButton1.SymbolSize = 30;
             this.uiSymbolButton1.TabIndex = 4;
             this.uiSymbolButton1.Text = "登录";
+            this.uiSymbolButton1.Click += new System.EventHandler(this.uiSymbolButton1_Click);
             // 
             // uiRadioButtonGroup1
             // 
             this.uiRadioButtonGroup1.BackColor = System.Drawing.Color.Transparent;
             this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton2);
             this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton1);
-            this.uiRadioButtonGroup1.FillColor = System.Drawing.Color.Transparent;
             this.uiRadioButtonGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiRadioButtonGroup1.Location = new System.Drawing.Point(53, 184);
             this.uiRadioButtonGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -144,7 +145,6 @@
             this.uiRadioButtonGroup1.Name = "uiRadioButtonGroup1";
             this.uiRadioButtonGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
             this.uiRadioButtonGroup1.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
-            this.uiRadioButtonGroup1.RectColor = System.Drawing.Color.Transparent;
             this.uiRadioButtonGroup1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiRadioButtonGroup1.Size = new System.Drawing.Size(207, 93);
             this.uiRadioButtonGroup1.Style = Sunny.UI.UIStyle.Custom;
@@ -155,13 +155,11 @@
             // 
             this.uiRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiRadioButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton2.ForeColor = System.Drawing.Color.White;
             this.uiRadioButton2.ImageSize = 20;
             this.uiRadioButton2.Location = new System.Drawing.Point(130, 36);
             this.uiRadioButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRadioButton2.Name = "uiRadioButton2";
             this.uiRadioButton2.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.uiRadioButton2.RadioButtonColor = System.Drawing.Color.White;
             this.uiRadioButton2.Size = new System.Drawing.Size(92, 30);
             this.uiRadioButton2.Style = Sunny.UI.UIStyle.Custom;
             this.uiRadioButton2.TabIndex = 1;
@@ -171,13 +169,11 @@
             // 
             this.uiRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiRadioButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton1.ForeColor = System.Drawing.Color.White;
             this.uiRadioButton1.ImageSize = 20;
             this.uiRadioButton1.Location = new System.Drawing.Point(4, 36);
             this.uiRadioButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRadioButton1.Name = "uiRadioButton1";
             this.uiRadioButton1.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.uiRadioButton1.RadioButtonColor = System.Drawing.Color.White;
             this.uiRadioButton1.Size = new System.Drawing.Size(94, 29);
             this.uiRadioButton1.Style = Sunny.UI.UIStyle.Custom;
             this.uiRadioButton1.TabIndex = 0;
