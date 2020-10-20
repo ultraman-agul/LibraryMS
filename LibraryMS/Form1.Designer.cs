@@ -29,49 +29,33 @@
         private void InitializeComponent()
         {
             this.uiButton1 = new Sunny.UI.UIButton();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiButton1
             // 
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(35, 159);
+            this.uiButton1.Location = new System.Drawing.Point(97, 221);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Size = new System.Drawing.Size(100, 35);
             this.uiButton1.TabIndex = 0;
             this.uiButton1.Text = "uiButton1";
             // 
-            // uiPanel1
-            // 
-            this.uiPanel1.Controls.Add(this.uiButton1);
-            this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(293, 139);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(169, 217);
-            this.uiPanel1.TabIndex = 1;
-            this.uiPanel1.Text = "uiPanel1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.uiPanel1);
+            this.Controls.Add(this.uiButton1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.uiPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         private Sunny.UI.UIButton uiButton1;
-        private Sunny.UI.UIPanel uiPanel1;
 
         #endregion
 
