@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SunnyUI">
-      <HintPath>..\..\..\SunnyUI-master\SunnyUI-master\Bin\SunnyUI.dll</HintPath>
+    <Reference Include="SunnyUI, Version=2.2.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SunnyUI.2.2.9\lib\net40\SunnyUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,6 +71,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
