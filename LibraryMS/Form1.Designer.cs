@@ -30,6 +30,7 @@
         {
             this.uiButton1 = new Sunny.UI.UIButton();
             this.uiButton2 = new Sunny.UI.UIButton();
+            this.uiComboBox1 = new Sunny.UI.UIComboBox();
             this.SuspendLayout();
             // 
             // uiButton1
@@ -54,11 +55,26 @@
             this.uiButton2.TabIndex = 1;
             this.uiButton2.Text = "uiButton2";
             // 
+            // uiComboBox1
+            // 
+            this.uiComboBox1.FillColor = System.Drawing.Color.White;
+            this.uiComboBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiComboBox1.Location = new System.Drawing.Point(160, 335);
+            this.uiComboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiComboBox1.MinimumSize = new System.Drawing.Size(63, 0);
+            this.uiComboBox1.Name = "uiComboBox1";
+            this.uiComboBox1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.uiComboBox1.Size = new System.Drawing.Size(150, 29);
+            this.uiComboBox1.TabIndex = 2;
+            this.uiComboBox1.Text = "uiComboBox1";
+            this.uiComboBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 450);
+            this.Controls.Add(this.uiComboBox1);
             this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.uiButton1);
             this.Name = "Form1";
@@ -70,6 +86,7 @@
 
         private Sunny.UI.UIButton uiButton1;
         private Sunny.UI.UIButton uiButton2;
+        private Sunny.UI.UIComboBox uiComboBox1;
 
         #endregion
 
