@@ -31,8 +31,6 @@
             this.uiButton1 = new Sunny.UI.UIButton();
             this.uiButton2 = new Sunny.UI.UIButton();
             this.uiComboBox1 = new Sunny.UI.UIComboBox();
-            this.uiTextBox1 = new Sunny.UI.UITextBox();
-            this.uiLabel1 = new Sunny.UI.UILabel();
             this.SuspendLayout();
             // 
             // uiButton1
@@ -71,39 +69,11 @@
             this.uiComboBox1.Text = "uiComboBox1";
             this.uiComboBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiTextBox1
-            // 
-            this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox1.FillColor = System.Drawing.Color.White;
-            this.uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiTextBox1.Location = new System.Drawing.Point(383, 236);
-            this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox1.Maximum = 2147483647D;
-            this.uiTextBox1.Minimum = -2147483648D;
-            this.uiTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTextBox1.Name = "uiTextBox1";
-            this.uiTextBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox1.Size = new System.Drawing.Size(150, 29);
-            this.uiTextBox1.TabIndex = 3;
-            this.uiTextBox1.Text = "uiTextBox1";
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel1.Location = new System.Drawing.Point(348, 165);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(182, 23);
-            this.uiLabel1.TabIndex = 4;
-            this.uiLabel1.Text = "图书馆管理系统";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 450);
-            this.Controls.Add(this.uiLabel1);
-            this.Controls.Add(this.uiTextBox1);
             this.Controls.Add(this.uiComboBox1);
             this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.uiButton1);
@@ -117,8 +87,6 @@
         private Sunny.UI.UIButton uiButton1;
         private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UIComboBox uiComboBox1;
-        private Sunny.UI.UITextBox uiTextBox1;
-        private Sunny.UI.UILabel uiLabel1;
 
         #endregion
 
