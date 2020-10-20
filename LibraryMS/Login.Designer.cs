@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.uiAvatar1 = new Sunny.UI.UIAvatar();
+            this.uiTextBox1 = new Sunny.UI.UITextBox();
             this.SuspendLayout();
             // 
             // uiAvatar1
@@ -41,11 +42,28 @@
             this.uiAvatar1.TabIndex = 0;
             this.uiAvatar1.Text = "uiAvatar1";
             // 
+            // uiTextBox1
+            // 
+            this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox1.FillColor = System.Drawing.Color.White;
+            this.uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiTextBox1.Location = new System.Drawing.Point(173, 232);
+            this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox1.Maximum = 2147483647D;
+            this.uiTextBox1.Minimum = -2147483648D;
+            this.uiTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTextBox1.Name = "uiTextBox1";
+            this.uiTextBox1.Padding = new System.Windows.Forms.Padding(5);
+            this.uiTextBox1.Size = new System.Drawing.Size(150, 29);
+            this.uiTextBox1.TabIndex = 1;
+            this.uiTextBox1.Text = "uiTextBox1";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 342);
+            this.Controls.Add(this.uiTextBox1);
             this.Controls.Add(this.uiAvatar1);
             this.Name = "Login";
             this.Text = "Login";
@@ -56,5 +74,6 @@
         #endregion
 
         private Sunny.UI.UIAvatar uiAvatar1;
+        private Sunny.UI.UITextBox uiTextBox1;
     }
 }
