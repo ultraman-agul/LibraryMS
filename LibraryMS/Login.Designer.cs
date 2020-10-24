@@ -31,13 +31,13 @@
             this.uiAvatar1 = new Sunny.UI.UIAvatar();
             this.uiTextBox1 = new Sunny.UI.UITextBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiTextBox2 = new Sunny.UI.UITextBox();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiRadioButtonGroup1 = new Sunny.UI.UIRadioButtonGroup();
             this.uiRadioButton2 = new Sunny.UI.UIRadioButton();
             this.uiRadioButton1 = new Sunny.UI.UIRadioButton();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.uiTextBox2 = new Sunny.UI.UITextBox();
             this.uiPanel1.SuspendLayout();
             this.uiRadioButtonGroup1.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +100,24 @@
             this.uiPanel1.TabIndex = 2;
             this.uiPanel1.Text = null;
             // 
+            // uiTextBox2
+            // 
+            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox2.FillColor = System.Drawing.Color.White;
+            this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox2.Location = new System.Drawing.Point(86, 149);
+            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox2.Maximum = 2147483647D;
+            this.uiTextBox2.Minimum = -2147483648D;
+            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTextBox2.Name = "uiTextBox2";
+            this.uiTextBox2.Padding = new System.Windows.Forms.Padding(5);
+            this.uiTextBox2.Radius = 10;
+            this.uiTextBox2.Size = new System.Drawing.Size(158, 33);
+            this.uiTextBox2.StyleCustomMode = true;
+            this.uiTextBox2.TabIndex = 6;
+            this.uiTextBox2.Watermark = "密码";
+            // 
             // uiSymbolButton2
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -116,6 +134,7 @@
             this.uiSymbolButton2.SymbolSize = 30;
             this.uiSymbolButton2.TabIndex = 5;
             this.uiSymbolButton2.Text = "注册";
+            this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
             // 
             // uiSymbolButton1
             // 
@@ -201,24 +220,6 @@
             this.uiLabel1.Text = "雷阳图书馆系统";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiTextBox2
-            // 
-            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox2.FillColor = System.Drawing.Color.White;
-            this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox2.Location = new System.Drawing.Point(86, 149);
-            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox2.Maximum = 2147483647D;
-            this.uiTextBox2.Minimum = -2147483648D;
-            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTextBox2.Name = "uiTextBox2";
-            this.uiTextBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox2.Radius = 10;
-            this.uiTextBox2.Size = new System.Drawing.Size(158, 33);
-            this.uiTextBox2.StyleCustomMode = true;
-            this.uiTextBox2.TabIndex = 6;
-            this.uiTextBox2.Watermark = "密码";
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -230,6 +231,7 @@
             this.Controls.Add(this.uiPanel1);
             this.Name = "Login";
             this.Text = "登录界面";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             this.uiPanel1.ResumeLayout(false);
             this.uiRadioButtonGroup1.ResumeLayout(false);

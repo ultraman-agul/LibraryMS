@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,13 +33,26 @@ namespace LibraryMS
             {
                 global.username = uiTextBox1.Text;
                 global.role = result.ToString();
-                //new MainForm().Show();
+                if (flag == "admin")
+                    new ManagerMain().Show();
+                else if(flag == "users")
+                    new ReaderMain().Show();
                 this.Visible = false;
             }
             else
             {
-                MessageBox.Show("用户名或密码错误");
+                UIMessageBox.Show("用户名或密码错误");
             }
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            new Register().Show();
         }
     }
 }

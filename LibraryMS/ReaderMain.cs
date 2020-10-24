@@ -16,5 +16,21 @@ namespace LibraryMS
         {
             InitializeComponent();
         }
+
+        private void uiSymbolButton1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            new Login().Show();
+        }
+
+        private void ReaderMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ReaderMain_Load(object sender, EventArgs e)
+        {
+            uiLabel3.Text = global.username;
+        }
     }
 }
