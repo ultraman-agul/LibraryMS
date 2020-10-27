@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -126,7 +127,7 @@ namespace LibraryMS
         }
 
         // 查询数据库，填充到combobox中
-        public static void setCBB(string sql, string columnName, ComboBox cbb)
+        public static void setCBB(string sql, string columnName, UIComboBox cbb)
         {
             SqlConnection conn = new SqlConnection(SqlHelper.GetSqlConnectionString());
             conn.Open();

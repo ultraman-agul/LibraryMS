@@ -23,19 +23,21 @@ namespace LibraryMS
             new Login().Show();
             this.Visible = false;
         }
-
+        
         private void ManagerMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-
+        #region 读者管理
         private void ManagerMain_Load(object sender, EventArgs e)
         {
-            uiRadioButton1.Checked = true; // 性别单选按钮
+            uiRadioButton1.Checked = true; // 默认性别单选按钮
             uiLabel1.Text += global.username;
             // 填充gridview1
             string sql = "select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users";
             SqlHelper.setGDV(sql, uiDataGridView1);
+            // 图书分类填充到cbb中
+            SqlHelper.setCBB("select TypeName as good from bookType", "good", booktypecbb);
         }
 
         private void uiTabControl3_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace LibraryMS
         // 查找
         private void uiSymbolButton3_Click(object sender, EventArgs e)
         {
-            string sql = "select id 编号, name 姓名, sex 性别, email 邮箱，role 角色 from users where id = '" + stunumber.Text.Trim() + "'";
+            string sql = "select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users where id = '" + stunumber.Text.Trim() + "'";
             SqlHelper.setGDV(sql, uiDataGridView2);
         }
         
@@ -116,16 +118,75 @@ namespace LibraryMS
             uiComboBox1.SelectedIndex = uiComboBox1.Items.IndexOf(roleStr);
         }
 
+        // 删除用户
         private void uiSymbolButton5_Click(object sender, EventArgs e)
         {
             SqlHelper.ExecuteNonQuery("delete from users where id = '" + uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString() +"'");
             UIMessageBox.ShowSuccess("删除成功！");
             SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
         }
-
+        #endregion
         private void uiPanel2_Click(object sender, EventArgs e)
         {
 
         }
+
+        #region 图书分类管理
+        // 分类 --添加
+        private void uiSymbolButton10_Click(object sender, EventArgs e)
+        {
+            if(typetext.Text.Trim()!= null)
+            {
+                string sql = "insert into bookType (typeName) values ('" + typetext.Text.Trim() + "')";
+                SqlHelper.ExecuteNonQuery(sql);
+                UIMessageBox.ShowSuccess("添加分类成功");
+                SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
+            }
+            
+        }
+
+        private void uiTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tabindex = uiTabControl1.SelectedIndex;
+            switch (tabindex)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                   
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    string sql2 = "select bookType 编号, typeName 分类名称 from bookType";
+                    SqlHelper.setGDV(sql2, uiDataGridView5);
+                    break;
+            }
+        }
+
+        // 修改分类
+        private void uiSymbolButton9_Click(object sender, EventArgs e)
+        {
+            string typeid = uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
+            string sql = "update bookType set typeName = '" + typetext.Text + "' where bookType = '" + typeid + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("修改成功");
+            SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
+        }
+
+        private void uiDataGridView5_SelectIndexChange(object sender, int index)
+        {
+            typetext.Text = uiDataGridView5[1, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            SqlHelper.ExecuteNonQuery("delete from bookType where bookType = '" + uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString() + "'");
+            UIMessageBox.ShowSuccess("删除成功！");
+            SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
+        }
+        #endregion
     }
 }
