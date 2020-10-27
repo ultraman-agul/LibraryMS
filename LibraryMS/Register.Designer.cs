@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiRadioButtonGroup1 = new Sunny.UI.UIRadioButtonGroup();
             this.cbb = new Sunny.UI.UIComboBox();
             this.uiSymbolLabel5 = new Sunny.UI.UISymbolLabel();
             this.uiPanel6 = new Sunny.UI.UIPanel();
@@ -47,7 +48,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
-            this.uiRadioButtonGroup1 = new Sunny.UI.UIRadioButtonGroup();
             this.uiRadioButton1 = new Sunny.UI.UIRadioButton();
             this.uiRadioButton2 = new Sunny.UI.UIRadioButton();
             this.uiPanel1.SuspendLayout();
@@ -83,6 +83,25 @@
             this.uiPanel1.Style = Sunny.UI.UIStyle.Orange;
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
+            this.uiPanel1.Click += new System.EventHandler(this.uiPanel1_Click);
+            // 
+            // uiRadioButtonGroup1
+            // 
+            this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton2);
+            this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton1);
+            this.uiRadioButtonGroup1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
+            this.uiRadioButtonGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiRadioButtonGroup1.Location = new System.Drawing.Point(78, 116);
+            this.uiRadioButtonGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiRadioButtonGroup1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiRadioButtonGroup1.Name = "uiRadioButtonGroup1";
+            this.uiRadioButtonGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiRadioButtonGroup1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.uiRadioButtonGroup1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiRadioButtonGroup1.Size = new System.Drawing.Size(136, 36);
+            this.uiRadioButtonGroup1.Style = Sunny.UI.UIStyle.Orange;
+            this.uiRadioButtonGroup1.TabIndex = 16;
+            this.uiRadioButtonGroup1.Text = null;
             // 
             // cbb
             // 
@@ -129,7 +148,6 @@
             this.uiPanel6.Size = new System.Drawing.Size(167, 2);
             this.uiPanel6.Style = Sunny.UI.UIStyle.Orange;
             this.uiPanel6.TabIndex = 12;
-            this.uiPanel6.Text = "uiPanel6";
             // 
             // uiSymbolLabel4
             // 
@@ -182,7 +200,6 @@
             this.uiPanel5.Size = new System.Drawing.Size(167, 2);
             this.uiPanel5.Style = Sunny.UI.UIStyle.Orange;
             this.uiPanel5.TabIndex = 9;
-            this.uiPanel5.Text = "uiPanel5";
             // 
             // uiSymbolLabel3
             // 
@@ -210,7 +227,6 @@
             this.uiPanel4.Size = new System.Drawing.Size(167, 2);
             this.uiPanel4.Style = Sunny.UI.UIStyle.Orange;
             this.uiPanel4.TabIndex = 6;
-            this.uiPanel4.Text = "uiPanel4";
             // 
             // uiSymbolLabel2
             // 
@@ -263,7 +279,6 @@
             this.uiPanel3.Size = new System.Drawing.Size(167, 2);
             this.uiPanel3.Style = Sunny.UI.UIStyle.Orange;
             this.uiPanel3.TabIndex = 3;
-            this.uiPanel3.Text = "uiPanel3";
             // 
             // uiSymbolLabel1
             // 
@@ -316,7 +331,6 @@
             this.uiPanel2.Size = new System.Drawing.Size(167, 2);
             this.uiPanel2.Style = Sunny.UI.UIStyle.Orange;
             this.uiPanel2.TabIndex = 0;
-            this.uiPanel2.Text = "uiPanel2";
             // 
             // label9
             // 
@@ -379,32 +393,16 @@
             this.uiSymbolButton2.Text = "注册";
             this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
             // 
-            // uiRadioButtonGroup1
-            // 
-            this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton2);
-            this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton1);
-            this.uiRadioButtonGroup1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
-            this.uiRadioButtonGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButtonGroup1.Location = new System.Drawing.Point(78, 117);
-            this.uiRadioButtonGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiRadioButtonGroup1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiRadioButtonGroup1.Name = "uiRadioButtonGroup1";
-            this.uiRadioButtonGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiRadioButtonGroup1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiRadioButtonGroup1.Size = new System.Drawing.Size(136, 41);
-            this.uiRadioButtonGroup1.Style = Sunny.UI.UIStyle.Orange;
-            this.uiRadioButtonGroup1.TabIndex = 16;
-            // 
             // uiRadioButton1
             // 
             this.uiRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiRadioButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton1.Location = new System.Drawing.Point(27, 7);
+            this.uiRadioButton1.Location = new System.Drawing.Point(0, 7);
             this.uiRadioButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRadioButton1.Name = "uiRadioButton1";
             this.uiRadioButton1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.uiRadioButton1.RadioButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiRadioButton1.Size = new System.Drawing.Size(150, 29);
+            this.uiRadioButton1.Size = new System.Drawing.Size(66, 29);
             this.uiRadioButton1.Style = Sunny.UI.UIStyle.Orange;
             this.uiRadioButton1.TabIndex = 0;
             this.uiRadioButton1.Text = "男";
@@ -413,12 +411,12 @@
             // 
             this.uiRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiRadioButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton2.Location = new System.Drawing.Point(86, 5);
+            this.uiRadioButton2.Location = new System.Drawing.Point(70, 7);
             this.uiRadioButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRadioButton2.Name = "uiRadioButton2";
             this.uiRadioButton2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.uiRadioButton2.RadioButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiRadioButton2.Size = new System.Drawing.Size(150, 29);
+            this.uiRadioButton2.Size = new System.Drawing.Size(66, 29);
             this.uiRadioButton2.Style = Sunny.UI.UIStyle.Orange;
             this.uiRadioButton2.TabIndex = 1;
             this.uiRadioButton2.Text = "女";
@@ -434,10 +432,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.uiPanel1);
             this.Name = "Register";
-            this.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.Style = Sunny.UI.UIStyle.Orange;
+            this.Style = Sunny.UI.UIStyle.Custom;
             this.Text = " 注册页面";
-            this.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.Load += new System.EventHandler(this.Register_Load);
             this.uiPanel1.ResumeLayout(false);
             this.uiRadioButtonGroup1.ResumeLayout(false);

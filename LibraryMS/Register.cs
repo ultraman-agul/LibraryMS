@@ -48,5 +48,10 @@ namespace LibraryMS
             this.Visible = false;
             new Login().Show();
         }
+
+        private void uiPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

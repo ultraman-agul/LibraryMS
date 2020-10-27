@@ -230,6 +230,9 @@
             this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.uiPanel1);
             this.Name = "Login";
+            this.Padding = new System.Windows.Forms.Padding(2, 35, 2, 2);
+            this.ShowDragStretch = true;
+            this.ShowRadius = false;
             this.Text = "登录界面";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);

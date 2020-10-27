@@ -122,5 +122,10 @@ namespace LibraryMS
             UIMessageBox.ShowSuccess("删除成功！");
             SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
         }
+
+        private void uiPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
