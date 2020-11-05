@@ -126,10 +126,6 @@ namespace LibraryMS
             SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
         }
         #endregion
-        private void uiPanel2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         #region 图书分类管理
         // 分类 --添加
@@ -151,13 +147,15 @@ namespace LibraryMS
             switch (tabindex)
             {
                 case 0:
-                    
+                    string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql1, uiDataGridView4);
                     break;
                 case 1:
-                   
+                    booktypecbb.SelectedIndex = 1;
                     break;
                 case 2:
-                    
+                    string sql3 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql3, tushucaozuoDV);
                     break;
                 case 3:
                     string sql2 = "select bookType 编号, typeName 分类名称 from bookType";
@@ -188,5 +186,60 @@ namespace LibraryMS
             SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
         }
         #endregion
+
+        #region 添加图书/图书操作
+        //添加
+        private void uiSymbolButton7_Click(object sender, EventArgs e)
+        {
+            string sql = "insert into book(bookName,author,bookNumber,publishCompany,publishDate,bookType,pages,wordsNumber) values('" + bnameTB.Text.Trim() +"','"+ authorTB.Text.Trim() +"','"+ bookNumTB.Text.Trim() +"','"+ publishCTB.Text.Trim() +"','" + uiDatePicker1.Text.Trim() + "','"+ booktypecbb.SelectedValue + "','" + pages.Text +"','"+ words.Text +"')";
+            if(SqlHelper.ExecuteNonQuery(sql) > 0)
+            {
+                UIMessageBox.ShowSuccess("添加成功！");
+            }
+            bnameTB.Text = "";
+            authorTB.Text = "";
+            bookNumTB.Text = "";
+            publishCTB.Text = "";
+            pages.Text = "";
+            words.Text = "";
+        }
+
+        #endregion
+
+        private void uiTabControlMenu1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tabmenuindex = uiTabControlMenu1.SelectedIndex;
+            switch(tabmenuindex)
+            {
+                case 0:
+                    // 填充gridview1
+                    string sql = "select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users";
+                    SqlHelper.setGDV(sql, uiDataGridView1);
+                    break;
+                case 1:
+                    string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql1, uiDataGridView4);
+                    break;
+            }
+        }
+
+
+        // 修改
+        private void uiSymbolButton10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        // 删除
+        private void uiSymbolButton9_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        // 查找
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -258,6 +258,7 @@
             this.uiImageButton3.TabIndex = 4;
             this.uiImageButton3.TabStop = false;
             this.uiImageButton3.Text = null;
+            this.uiImageButton3.Click += new System.EventHandler(this.uiImageButton3_Click);
             // 
             // uiPanel4
             // 
