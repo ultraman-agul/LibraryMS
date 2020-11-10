@@ -156,6 +156,8 @@ namespace LibraryMS
                 case 2:
                     string sql3 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
                     SqlHelper.setGDV(sql3, tushucaozuoDV);
+                    string sql4 = "select typeName as TYPE from bookType";
+                    SqlHelper.setCBB(sql4, "TYPE",uiComboBox2);
                     break;
                 case 3:
                     string sql2 = "select bookType 编号, typeName 分类名称 from bookType";
@@ -227,19 +229,47 @@ namespace LibraryMS
         // 修改
         private void uiSymbolButton10_Click_1(object sender, EventArgs e)
         {
-
+            string id = tushucaozuoDV[0, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            string sql = "update book set bookName = '" + nametb.Text + "',author = '" + authertb.Text +
+                "',bookNumber = '" + numbertb.Text + "',publishCompany = '" + publishcompany.Text + "',publishDate = '" + uiDatePicker2.Text +"',bookType='"+uiComboBox2.SelectedText+"',pages = '"+pagestb.Text+"',wordsNumber = '"+ wordstb.Text +"' where id = '" + id + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("修改成功");
+            SqlHelper.setGDV("select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book", tushucaozuoDV);
         }
 
-        // 删除
+        // 删除图书
         private void uiSymbolButton9_Click_1(object sender, EventArgs e)
         {
-
+            SqlHelper.ExecuteNonQuery("delete from book where id = '" + tushucaozuoDV[0, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString() + "'");
+            UIMessageBox.ShowSuccess("删除成功！");
+            SqlHelper.setGDV("select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book", tushucaozuoDV);
         }
 
         // 查找
         private void searchbtn_Click(object sender, EventArgs e)
         {
+            if(nametb.Text.Trim() != null)
+            {
+                string sql = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book where bookName = '" + nametb.Text.Trim() + "'";
+                SqlHelper.setGDV(sql, tushucaozuoDV);
+            }
+            else
+            {
+                UIMessageBox.ShowWarning("请输入书籍名称进行查找");
+            }
+        }
 
+        private void tushucaozuoDV_SelectIndexChange(object sender, int index)
+        {
+            nametb.Text = tushucaozuoDV[1, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            authertb.Text = tushucaozuoDV[2, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            numbertb.Text = tushucaozuoDV[3, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            publishcompany.Text = tushucaozuoDV[4, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            string selecttext = tushucaozuoDV[6, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            uiComboBox2.Text = selecttext;
+            uiDatePicker2.Text = tushucaozuoDV[5, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            pagestb.Text = tushucaozuoDV[7, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
+            wordstb.Text = tushucaozuoDV[8, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
         }
     }
 }
