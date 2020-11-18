@@ -87,17 +87,19 @@ namespace LibraryMS
         }
 
         // 执行查询多行多列的数据的方法：ExecuteReader
-        public static SqlDataReader ExecuteReader(string sqlText, params SqlParameter[] parameters)
+        public static SqlDataReader ExecuteReader(string sqlText)
         {
             //SqlDataReader要求，它读取数据的时候有，它独占它的SqlConnection对象，而且SqlConnection必须是Open状态
             SqlConnection conn = new SqlConnection(GetSqlConnectionString());//不要释放连接，因为后面还需要连接打开状态
             SqlCommand cmd = conn.CreateCommand();
             conn.Open();
-            cmd.CommandText = sqlText;
-            if (parameters != null)
-                cmd.Parameters.AddRange(parameters);
+            cmd = new SqlCommand(sqlText, conn);
+            SqlDataReader sdr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+           // System.Data.CommandBehavior.CloseConnection ：//关闭dataReader时,同时也把与它相关联的Connection连接也一起关闭
+            return sdr;
+
             //CommandBehavior.CloseConnection当SqlDataReader释放的时候，顺便把SqlConnection对象也释放掉
-            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
         }
 
         // MD5数据加密

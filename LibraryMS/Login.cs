@@ -27,7 +27,7 @@ namespace LibraryMS
         {
             string pwd = SqlHelper.MD5Hash(uiTextBox2.Text);
             string flag = uiRadioButton1.Checked ? "admin" : "users";
-            string sql = "select * from " + flag + " where name = '" + uiTextBox1.Text + "' and pwd = '" + pwd + "'";
+            string sql = "select * from " + flag + " where id = '" + uiTextBox1.Text + "' and pwd = '" + pwd + "'";
             object result = SqlHelper.ExecuteScalar(sql);
             if (result != null)
             {

@@ -13,6 +13,7 @@ namespace LibraryMS
 {
     public partial class ManagerMain : Sunny.UI.UIForm
     {
+        #region 加载
         public ManagerMain()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace LibraryMS
         {
             Application.Exit();
         }
-        #region 读者管理
+
         private void ManagerMain_Load(object sender, EventArgs e)
         {
             uiRadioButton1.Checked = true; // 默认性别单选按钮
@@ -38,8 +39,14 @@ namespace LibraryMS
             SqlHelper.setGDV(sql, uiDataGridView1);
             // 图书分类填充到cbb中
             SqlHelper.setCBB("select TypeName as good from bookType", "good", booktypecbb);
-        }
+            SqlHelper.setCBB("select typename from usertype", "typename", cbb);
+            SqlHelper.setCBB("select TypeName as good from bookType", "good", booktype);
+            SqlHelper.setCBB("select typeName as good from usertype", "good", role);
 
+        }
+        #endregion
+
+        #region 填充Gradview
         private void uiTabControl3_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tabindex = uiTabControl3.SelectedIndex;
@@ -55,13 +62,47 @@ namespace LibraryMS
                     break;
                 case 2:
                     uiRadioButton4.Checked = true;
-                    uiComboBox1.SelectedIndex = uiComboBox1.Items.IndexOf("学生");
+                    role.SelectedIndex = role.Items.IndexOf("学生");
                     string sql1 = "select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users";
                     SqlHelper.setGDV(sql1, uiDataGridView2);
                     break;
+                case 3:
+                    string sql2 = "select id 编号, typename 姓名, days 可借天数, numbers 数量 from usertype";
+                    SqlHelper.setGDV(sql2, uiDataGridView6);
+                    break;
+
             }
         }
+        private void uiTabControl1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
 
+            int tabindex = uiTabControl1.SelectedIndex;
+            switch (tabindex)
+            {
+
+                case 0:
+                    string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql1, uiDataGridView4);
+                    break;
+                case 2:
+                    string sql2 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql2, tushucaozuoDV);
+                    break;
+                case 3:
+                    string sql3 = "select  booktype 类型编号,  typename 类型名字 from booktype";
+                    SqlHelper.setGDV(sql3, uiDataGridView5);
+                    break;
+                case 4:
+                    string sql4 = "select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase";
+                    SqlHelper.setGDV(sql4, uiDataGridView7);
+                    break;
+
+
+            }
+        }
+        #endregion
+
+        #region 用户管理
         // 添加用户
         private void uiSymbolButton2_Click(object sender, EventArgs e)
         {
@@ -69,7 +110,7 @@ namespace LibraryMS
             if (name.Text != null && pwd.Text != null && beChecked != null && email.Text != null && cbb.SelectedText.ToString() != null)
             {
                 string newpwd = SqlHelper.MD5Hash(pwd.Text);
-                string sql = "insert into users (name, pwd, sex, email, role) values ('" + name.Text + "','" + newpwd + "','" + beChecked + "','" + email.Text + "','" + cbb.SelectedItem.ToString() + "')";
+                string sql = "insert into users (name, pwd, sex, email, role) values ('" + name.Text + "','" + newpwd + "','" + beChecked + "','" + email.Text + "','" + cbb.SelectedValue + "')";
                 SqlHelper.ExecuteNonQuery(sql);
                 UIMessageBox.Show("注册成功！");
             }
@@ -93,30 +134,14 @@ namespace LibraryMS
         private void uiSymbolButton4_Click(object sender, EventArgs e)
         {
             string beChecked = uiRadioButton4.Checked ? uiRadioButton4.Text : uiRadioButton3.Text;
-            string sql = "update users set name = '" + uiTextBox3.Text + "', sex = '" + beChecked + "',email = '" + uiTextBox1.Text + "', role = '" + uiComboBox1.Text + "' where id = '" + stunumber.Text + "'";
+            string sql = "update users set name = '" + uiTextBox3.Text + "', sex = '" + beChecked + "',email = '" + uiTextBox1.Text + "', role = '" + role.Text + "' where id = '" + stunumber.Text + "'";
             SqlHelper.ExecuteNonQuery(sql);
             UIMessageBox.ShowSuccess("修改成功");
             SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
         }
 
         // 选择当前行的数据
-        private void uiDataGridView2_SelectIndexChange(object sender, int index)
-        {
-            stunumber.Text = uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
-            uiTextBox3.Text = uiDataGridView2[1, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
-            string sexStr = uiDataGridView2[2, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
-            if (uiRadioButton1.Text == sexStr)
-            {
-                uiRadioButton1.Checked = true;
-            }
-            else
-            {
-                uiRadioButton2.Checked = true;
-            }
-            uiTextBox1.Text = uiDataGridView2[3, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
-            string roleStr = uiDataGridView2[4, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
-            uiComboBox1.SelectedIndex = uiComboBox1.Items.IndexOf(roleStr);
-        }
+
 
         // 删除用户
         private void uiSymbolButton5_Click(object sender, EventArgs e)
@@ -157,16 +182,21 @@ namespace LibraryMS
                     string sql3 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
                     SqlHelper.setGDV(sql3, tushucaozuoDV);
                     string sql4 = "select typeName as TYPE from bookType";
-                    SqlHelper.setCBB(sql4, "TYPE",uiComboBox2);
+                    SqlHelper.setCBB(sql4, "TYPE",booktype);
                     break;
                 case 3:
                     string sql2 = "select bookType 编号, typeName 分类名称 from bookType";
                     SqlHelper.setGDV(sql2, uiDataGridView5);
                     break;
+                case 4:
+                    string sql3y = "select caseid 书架编号, id 图书编号,address 藏书地址,state 借阅状态 from bookcase";
+                    SqlHelper.setGDV(sql3y, uiDataGridView7);
+                    break;
+
             }
         }
 
-        // 修改分类
+        // 修改图书分类
         private void uiSymbolButton9_Click(object sender, EventArgs e)
         {
             string typeid = uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
@@ -176,10 +206,6 @@ namespace LibraryMS
             SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
         }
 
-        private void uiDataGridView5_SelectIndexChange(object sender, int index)
-        {
-            typetext.Text = uiDataGridView5[1, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
-        }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
@@ -206,8 +232,10 @@ namespace LibraryMS
             words.Text = "";
         }
 
-        #endregion
+        
 
+
+        //选择填充数据到图书信息总览和用户总览
         private void uiTabControlMenu1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tabmenuindex = uiTabControlMenu1.SelectedIndex;
@@ -231,7 +259,7 @@ namespace LibraryMS
         {
             string id = tushucaozuoDV[0, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             string sql = "update book set bookName = '" + nametb.Text + "',author = '" + authertb.Text +
-                "',bookNumber = '" + numbertb.Text + "',publishCompany = '" + publishcompany.Text + "',publishDate = '" + uiDatePicker2.Text +"',bookType='"+uiComboBox2.SelectedText+"',pages = '"+pagestb.Text+"',wordsNumber = '"+ wordstb.Text +"' where id = '" + id + "'";
+                "',bookNumber = '" + numbertb.Text + "',publishCompany = '" + publishcompany.Text + "',publishDate = '" + uiDatePicker2.Text +"',bookType='"+booktype.SelectedText+"',pages = '"+pagestb.Text+"',wordsNumber = '"+ wordstb.Text +"' where id = '" + id + "'";
             SqlHelper.ExecuteNonQuery(sql);
             UIMessageBox.ShowSuccess("修改成功");
             SqlHelper.setGDV("select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book", tushucaozuoDV);
@@ -245,7 +273,7 @@ namespace LibraryMS
             SqlHelper.setGDV("select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book", tushucaozuoDV);
         }
 
-        // 查找
+        // 根据书名查找图书信息
         private void searchbtn_Click(object sender, EventArgs e)
         {
             if(nametb.Text.Trim() != null)
@@ -258,7 +286,7 @@ namespace LibraryMS
                 UIMessageBox.ShowWarning("请输入书籍名称进行查找");
             }
         }
-
+        //点击Gradview在Textbox查询数据
         private void tushucaozuoDV_SelectIndexChange(object sender, int index)
         {
             nametb.Text = tushucaozuoDV[1, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
@@ -266,10 +294,128 @@ namespace LibraryMS
             numbertb.Text = tushucaozuoDV[3, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             publishcompany.Text = tushucaozuoDV[4, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             string selecttext = tushucaozuoDV[6, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
-            uiComboBox2.Text = selecttext;
+            booktype.Text = selecttext;
             uiDatePicker2.Text = tushucaozuoDV[5, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             pagestb.Text = tushucaozuoDV[7, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             wordstb.Text = tushucaozuoDV[8, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
         }
+
+
+        #endregion
+
+        #region 读者类型操作
+        //用户类型添加
+        private void uiSymbolButton8_Click(object sender, EventArgs e)
+        {
+            if (usertypename.Text.Trim() != null)
+            {
+                string sql = "insert into usertype (typename,days,numbers) values ('" + usertypename.Text.Trim() + "','" + days.Text.Trim() + "','" + numbers.Text.Trim() + "')";
+                SqlHelper.ExecuteNonQuery(sql);
+                UIMessageBox.ShowSuccess("添加分类成功");
+                SqlHelper.setGDV("select id 编号, typename 分类名称,days 天数,numbers 可借数量 from usertype", uiDataGridView6);
+            }
+        }
+        //用户类型修改
+        private void uiSymbolButton12_Click(object sender, EventArgs e)
+        {
+            string typeid = uiDataGridView6[0, uiDataGridView6.CurrentCell.RowIndex].Value.ToString();
+            string sql = "update usertype set typename = '" + usertypename.Text + "',days= '" + days.Text + "',numbers= '" + numbers.Text + "' where id = '" + typeid + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("修改成功");
+            SqlHelper.setGDV("select id 编号, typename 分类名称,days 可借天数,numbers 数量 from usertype", uiDataGridView6);
+
+        }
+        //用户类型删除
+        private void uiSymbolButton11_Click(object sender, EventArgs e)
+        {
+            SqlHelper.ExecuteNonQuery("delete from usertype where id = '" + uiDataGridView6[0, uiDataGridView6.CurrentCell.RowIndex].Value.ToString() + "'");
+            UIMessageBox.ShowSuccess("删除成功！");
+            SqlHelper.setGDV("select id 编号, typename 分类名称,days 可借天数,numbers 数量 from usertype", uiDataGridView6);
+
+        }
+        #endregion
+
+        #region 选择当前行的数据进行填充
+
+        private void uiDataGridView2_SelectIndexChange(object sender, int index)
+        {
+            stunumber.Text = uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
+            uiTextBox3.Text = uiDataGridView2[1, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
+            string sexStr = uiDataGridView2[2, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
+            if (uiRadioButton1.Text == sexStr)
+            {
+                uiRadioButton1.Checked = true;
+            }
+            else
+            {
+                uiRadioButton2.Checked = true;
+            }
+            uiTextBox1.Text = uiDataGridView2[3, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
+            string roleStr = uiDataGridView2[4, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
+            role.SelectedIndex = role.Items.IndexOf(roleStr);
+        }
+
+        private void uiDataGridView5_SelectIndexChange(object sender, int index)
+        {
+            typetext.Text = uiDataGridView5[1, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
+        }
+        private void uiDataGridView6_SelectIndexChange(object sender, int index)
+        {
+            id.Text = uiDataGridView6[0, uiDataGridView6.CurrentCell.RowIndex].Value.ToString();
+            usertypename.Text = uiDataGridView6[1, uiDataGridView6.CurrentCell.RowIndex].Value.ToString();
+            days.Text = uiDataGridView6[2, uiDataGridView6.CurrentCell.RowIndex].Value.ToString();
+            numbers.Text = uiDataGridView6[3, uiDataGridView6.CurrentCell.RowIndex].Value.ToString();
+        }
+        
+
+        private void uiDataGridView7_SelectIndexChange(object sender, int index)
+        {
+            bookid.Text = uiDataGridView7[1, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
+            caseid.Text = uiDataGridView7[0, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
+            address.Text = uiDataGridView7[2, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
+            state.Text = uiDataGridView7[3, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
+        }
+        #endregion
+
+
+        #region 书架管理
+        private void uiSymbolButton8_Click_1(object sender, EventArgs e)
+        {
+            string sql = "insert into bookcase values('" +caseid.Text.Trim() +"','" + bookid.Text.Trim()+"','" +address.Text.Trim() +"','" + state.Text.Trim()+"')";
+            if (SqlHelper.ExecuteNonQuery(sql) > 0)
+            {
+                UIMessageBox.ShowSuccess("添加成功！");
+                caseid.Text = "";
+                bookid.Text = "";
+                address.Text = "";
+                state.Text = "";
+                SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
+            }
+            else
+            {
+                UIMessageTip.ShowError("添加失败");
+            }
+
+        }
+
+        private void uiSymbolButton12_Click_1(object sender, EventArgs e)
+        {
+            string id = uiDataGridView7[0, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
+            string sql = "update bookcase set id = '" + bookid.Text + "',address = '" + address.Text.Trim() +"',state='"+state.Text.Trim()+"' where caseid = '" + id + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("修改成功");
+            SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
+
+        }
+
+        private void uiSymbolButton11_Click_1(object sender, EventArgs e)
+        {
+            string id = uiDataGridView7[0, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
+            string sql = "delete from bookcase where caseid = '" + id + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("删除成功");
+            SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
+        }
+        #endregion
     }
 }

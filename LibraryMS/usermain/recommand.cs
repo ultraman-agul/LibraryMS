@@ -1,0 +1,36 @@
+﻿using Sunny.UI;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace LibraryMS.usermain
+{
+    public partial class recommand : Sunny.UI.UIForm
+    {
+        public recommand()
+        {
+            InitializeComponent();
+        }
+
+        private void yes_Click(object sender, EventArgs e)
+        {
+            string sql = "insert into recommand(name,author,publish,type,reason) values('" + name.Text + "','" + author.Text + "','" + publish.Text + "','" + type.Text + "','" + reason.Text + "')";
+            int s=SqlHelper.ExecuteNonQuery(sql);
+            if (s > 0)
+            {
+                UIMessageBox.Show("推荐成功，等待管理员审核");
+            }
+            else
+            {
+                UIMessageBox.Show("推荐失败");
+            }
+        }
+    }
+}

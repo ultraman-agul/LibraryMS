@@ -80,6 +80,30 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlHelper.cs" />
+    <Compile Include="usermain\borrowbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usermain\borrowbook.Designer.cs">
+      <DependentUpon>borrowbook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usermain\borrowmsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usermain\borrowmsg.Designer.cs">
+      <DependentUpon>borrowmsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usermain\recommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usermain\recommand.Designer.cs">
+      <DependentUpon>recommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usermain\usermsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usermain\usermsg.Designer.cs">
+      <DependentUpon>usermsg.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +125,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermain\borrowbook.resx">
+      <DependentUpon>borrowbook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermain\borrowmsg.resx">
+      <DependentUpon>borrowmsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermain\recommand.resx">
+      <DependentUpon>recommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermain\usermsg.resx">
+      <DependentUpon>usermsg.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -139,6 +175,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\borrowbook.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\个人信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编号.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\姓名.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\姓名 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\性别 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\密码.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\邮箱.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\角色.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\书本.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\推荐.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\自习室.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\图书查询.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\图书.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\留言.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\个人信息 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
