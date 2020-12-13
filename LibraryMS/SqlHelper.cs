@@ -1,5 +1,6 @@
 ﻿using Sunny.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -140,6 +141,28 @@ namespace LibraryMS
             cbb.DataSource = dt;
             cbb.ValueMember = columnName;
             conn.Close();
+        }
+
+        /// <summary>
+        /// 数据库有连接操作，获取查询结果，返回指定查询列的值
+        /// </summary>
+        /// <param name="sql">查询语句</param>
+        /// <param name="columnName">指定查询的列名</param>
+        /// <returns></returns>
+        public static ArrayList DataReader(string sql, string columnName)
+        {
+            SqlConnection conn = new SqlConnection(GetSqlConnectionString());
+            conn.Open();
+            SqlCommand comm = new SqlCommand(sql, conn);
+            SqlDataReader sdr = comm.ExecuteReader();
+            ArrayList arr = new ArrayList(1);
+            while (sdr.Read())
+            {
+                arr.Add(sdr[columnName].ToString().Trim());
+            }
+            sdr.Close();
+            conn.Close();
+            return arr;
         }
     }
 }

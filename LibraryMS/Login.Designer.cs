@@ -58,10 +58,10 @@
             // uiTextBox1
             // 
             this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox1.DoubleValue = 2018324105D;
+            this.uiTextBox1.DoubleValue = 2018324112D;
             this.uiTextBox1.FillColor = System.Drawing.Color.White;
             this.uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox1.IntValue = 2018324105;
+            this.uiTextBox1.IntValue = 2018324112;
             this.uiTextBox1.Location = new System.Drawing.Point(86, 96);
             this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTextBox1.Maximum = 2147483647D;
@@ -73,7 +73,7 @@
             this.uiTextBox1.Size = new System.Drawing.Size(158, 33);
             this.uiTextBox1.StyleCustomMode = true;
             this.uiTextBox1.TabIndex = 1;
-            this.uiTextBox1.Text = "2018324105";
+            this.uiTextBox1.Text = "2018324112";
             this.uiTextBox1.Watermark = "账号";
             // 
             // uiPanel1
@@ -106,10 +106,8 @@
             // uiTextBox2
             // 
             this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox2.DoubleValue = 1D;
             this.uiTextBox2.FillColor = System.Drawing.Color.White;
             this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox2.IntValue = 1;
             this.uiTextBox2.Location = new System.Drawing.Point(86, 149);
             this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTextBox2.Maximum = 2147483647D;
@@ -121,7 +119,7 @@
             this.uiTextBox2.Size = new System.Drawing.Size(158, 33);
             this.uiTextBox2.StyleCustomMode = true;
             this.uiTextBox2.TabIndex = 6;
-            this.uiTextBox2.Text = "1";
+            this.uiTextBox2.Text = "0";
             this.uiTextBox2.Watermark = "密码";
             // 
             // uiSymbolButton2

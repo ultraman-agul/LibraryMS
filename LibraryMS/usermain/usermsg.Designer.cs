@@ -36,12 +36,18 @@
             this.uiButton6 = new Sunny.UI.UIButton();
             this.uiButton7 = new Sunny.UI.UIButton();
             this.role = new Sunny.UI.UITextBox();
-            this.uiButton8 = new Sunny.UI.UIButton();
-            this.uiButton5 = new Sunny.UI.UIButton();
-            this.uiButton4 = new Sunny.UI.UIButton();
-            this.uiButton3 = new Sunny.UI.UIButton();
-            this.uiButton2 = new Sunny.UI.UIButton();
-            this.uiButton1 = new Sunny.UI.UIButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // id
@@ -83,7 +89,7 @@
             this.psd.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.psd.FillColor = System.Drawing.Color.White;
             this.psd.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.psd.Location = new System.Drawing.Point(164, 208);
+            this.psd.Location = new System.Drawing.Point(164, 214);
             this.psd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.psd.Maximum = 2147483647D;
             this.psd.Minimum = -2147483648D;
@@ -117,7 +123,7 @@
             this.email.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.email.FillColor = System.Drawing.Color.White;
             this.email.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.email.Location = new System.Drawing.Point(164, 243);
+            this.email.Location = new System.Drawing.Point(164, 255);
             this.email.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.email.Maximum = 2147483647D;
             this.email.Minimum = -2147483648D;
@@ -128,6 +134,7 @@
             this.email.Size = new System.Drawing.Size(150, 30);
             this.email.Style = Sunny.UI.UIStyle.Orange;
             this.email.TabIndex = 8;
+            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             // 
             // uiButton6
             // 
@@ -137,7 +144,7 @@
             this.uiButton6.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiButton6.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiButton6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton6.Location = new System.Drawing.Point(125, 333);
+            this.uiButton6.Location = new System.Drawing.Point(125, 347);
             this.uiButton6.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton6.Name = "uiButton6";
             this.uiButton6.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
@@ -158,7 +165,7 @@
             this.uiButton7.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiButton7.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiButton7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton7.Location = new System.Drawing.Point(230, 333);
+            this.uiButton7.Location = new System.Drawing.Point(230, 347);
             this.uiButton7.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton7.Name = "uiButton7";
             this.uiButton7.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
@@ -176,7 +183,7 @@
             this.role.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.role.FillColor = System.Drawing.Color.White;
             this.role.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.role.Location = new System.Drawing.Point(164, 279);
+            this.role.Location = new System.Drawing.Point(164, 295);
             this.role.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.role.Maximum = 2147483647D;
             this.role.Minimum = -2147483648D;
@@ -188,160 +195,94 @@
             this.role.Style = Sunny.UI.UIStyle.Orange;
             this.role.TabIndex = 12;
             // 
-            // uiButton8
+            // pictureBox1
             // 
-            this.uiButton8.BackgroundImage = global::LibraryMS.Properties.Resources.角色;
-            this.uiButton8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiButton8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton8.FillColor = System.Drawing.Color.Transparent;
-            this.uiButton8.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton8.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton8.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton8.Location = new System.Drawing.Point(125, 282);
-            this.uiButton8.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton8.Name = "uiButton8";
-            this.uiButton8.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton8.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton8.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton8.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton8.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiButton8.Size = new System.Drawing.Size(32, 33);
-            this.uiButton8.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton8.TabIndex = 13;
+            this.pictureBox1.BackgroundImage = global::LibraryMS.Properties.Resources.编号;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(125, 84);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
-            // uiButton5
+            // pictureBox2
             // 
-            this.uiButton5.BackgroundImage = global::LibraryMS.Properties.Resources.邮箱;
-            this.uiButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton5.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton5.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton5.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton5.Location = new System.Drawing.Point(125, 243);
-            this.uiButton5.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton5.Name = "uiButton5";
-            this.uiButton5.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton5.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton5.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton5.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton5.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiButton5.Size = new System.Drawing.Size(32, 33);
-            this.uiButton5.Style = Sunny.UI.UIStyle.Orange;
-            this.uiButton5.TabIndex = 9;
+            this.pictureBox2.BackgroundImage = global::LibraryMS.Properties.Resources.角色;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(125, 295);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
             // 
-            // uiButton4
+            // pictureBox3
             // 
-            this.uiButton4.BackgroundImage = global::LibraryMS.Properties.Resources.密码;
-            this.uiButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton4.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton4.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton4.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton4.Location = new System.Drawing.Point(125, 204);
-            this.uiButton4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton4.Name = "uiButton4";
-            this.uiButton4.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton4.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton4.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton4.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton4.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiButton4.Size = new System.Drawing.Size(32, 33);
-            this.uiButton4.Style = Sunny.UI.UIStyle.Orange;
-            this.uiButton4.TabIndex = 7;
+            this.pictureBox3.BackgroundImage = global::LibraryMS.Properties.Resources.邮箱;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(125, 255);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
             // 
-            // uiButton3
+            // pictureBox4
             // 
-            this.uiButton3.BackgroundImage = global::LibraryMS.Properties.Resources.性别__1_;
-            this.uiButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton3.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton3.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton3.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton3.Location = new System.Drawing.Point(125, 165);
-            this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton3.Name = "uiButton3";
-            this.uiButton3.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton3.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton3.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton3.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton3.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiButton3.Size = new System.Drawing.Size(32, 33);
-            this.uiButton3.Style = Sunny.UI.UIStyle.Orange;
-            this.uiButton3.TabIndex = 5;
+            this.pictureBox4.BackgroundImage = global::LibraryMS.Properties.Resources.密码;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(125, 209);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox4.TabIndex = 16;
+            this.pictureBox4.TabStop = false;
             // 
-            // uiButton2
+            // pictureBox5
             // 
-            this.uiButton2.BackgroundImage = global::LibraryMS.Properties.Resources.姓名__1_;
-            this.uiButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton2.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton2.Location = new System.Drawing.Point(125, 124);
-            this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton2.Name = "uiButton2";
-            this.uiButton2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton2.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton2.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton2.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton2.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiButton2.Size = new System.Drawing.Size(32, 33);
-            this.uiButton2.Style = Sunny.UI.UIStyle.Orange;
-            this.uiButton2.TabIndex = 3;
+            this.pictureBox5.BackgroundImage = global::LibraryMS.Properties.Resources.性别__1_;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(125, 168);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox5.TabIndex = 17;
+            this.pictureBox5.TabStop = false;
             // 
-            // uiButton1
+            // pictureBox6
             // 
-            this.uiButton1.BackgroundImage = global::LibraryMS.Properties.Resources.编号;
-            this.uiButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.FillColor = System.Drawing.Color.Transparent;
-            this.uiButton1.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(125, 84);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiButton1.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiButton1.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton1.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiButton1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiButton1.Size = new System.Drawing.Size(32, 33);
-            this.uiButton1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton1.TabIndex = 1;
+            this.pictureBox6.BackgroundImage = global::LibraryMS.Properties.Resources.姓名__1_;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(125, 124);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox6.TabIndex = 18;
+            this.pictureBox6.TabStop = false;
             // 
             // usermsg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 398);
-            this.Controls.Add(this.uiButton8);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.role);
             this.Controls.Add(this.uiButton7);
             this.Controls.Add(this.uiButton6);
-            this.Controls.Add(this.uiButton5);
             this.Controls.Add(this.email);
-            this.Controls.Add(this.uiButton4);
             this.Controls.Add(this.sex);
-            this.Controls.Add(this.uiButton3);
             this.Controls.Add(this.psd);
-            this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.uiButton1);
             this.Controls.Add(this.id);
             this.Name = "usermsg";
             this.Text = " ";
             this.Load += new System.EventHandler(this.usermsg_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,18 +290,18 @@
         #endregion
 
         private Sunny.UI.UITextBox id;
-        private Sunny.UI.UIButton uiButton1;
-        private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UITextBox name;
-        private Sunny.UI.UIButton uiButton3;
         private Sunny.UI.UITextBox psd;
-        private Sunny.UI.UIButton uiButton4;
         private Sunny.UI.UITextBox sex;
-        private Sunny.UI.UIButton uiButton5;
         private Sunny.UI.UITextBox email;
         private Sunny.UI.UIButton uiButton6;
         private Sunny.UI.UIButton uiButton7;
-        private Sunny.UI.UIButton uiButton8;
         private Sunny.UI.UITextBox role;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

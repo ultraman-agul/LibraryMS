@@ -16,12 +16,20 @@ namespace LibraryMS.usermain
             string sql = "select * from book";
             SqlHelper.setGDV(sql, mainGV);
             bookcid.Enabled = bookid.Enabled = bookcname.Enabled = borrow.Enabled = false;
-           
+
         }
 
         private void search_Click(object sender, EventArgs e)
         {
-            string sql="select * from book where bookName='"+bookname.Text.Trim()+"'";
+            string sql = "";
+            if (bookname.Text.Trim()!= null)
+            {
+                 sql="select * from book where bookName like '%"+bookname.Text.Trim()+"%'";
+            }
+            else
+            {
+                sql = "select * from book";
+            }
             SqlHelper.setGDV(sql, mainGV);
         }
 

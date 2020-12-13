@@ -33,9 +33,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.yes = new Sunny.UI.UIButton();
             this.reason = new Sunny.UI.UIRichTextBox();
-            this.type = new Sunny.UI.UITextBox();
-            this.author = new Sunny.UI.UITextBox();
             this.publish = new Sunny.UI.UITextBox();
+            this.author = new Sunny.UI.UITextBox();
+            this.type = new Sunny.UI.UITextBox();
             this.name = new Sunny.UI.UITextBox();
             this.uiTabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,7 +57,7 @@
             this.uiTabControl1.SelectedIndex = 0;
             this.uiTabControl1.Size = new System.Drawing.Size(747, 457);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.uiTabControl1.Style = Sunny.UI.UIStyle.Orange;
+            this.uiTabControl1.Style = Sunny.UI.UIStyle.Custom;
             this.uiTabControl1.TabIndex = 0;
             this.uiTabControl1.TabSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiTabControl1.TabSelectedHighColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
@@ -73,18 +73,18 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.tabPage2.Controls.Add(this.yes);
             this.tabPage2.Controls.Add(this.reason);
-            this.tabPage2.Controls.Add(this.type);
-            this.tabPage2.Controls.Add(this.author);
             this.tabPage2.Controls.Add(this.publish);
+            this.tabPage2.Controls.Add(this.author);
+            this.tabPage2.Controls.Add(this.type);
             this.tabPage2.Controls.Add(this.name);
             this.tabPage2.Location = new System.Drawing.Point(0, 50);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(747, 407);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "图书荐购";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // yes
             // 
@@ -102,9 +102,10 @@
             this.yes.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.yes.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.yes.Size = new System.Drawing.Size(100, 35);
-            this.yes.Style = Sunny.UI.UIStyle.Orange;
+            this.yes.Style = Sunny.UI.UIStyle.Custom;
             this.yes.TabIndex = 37;
             this.yes.Text = "确认";
+            this.yes.Click += new System.EventHandler(this.yes_Click_1);
             // 
             // reason
             // 
@@ -124,22 +125,22 @@
             this.reason.TabIndex = 36;
             this.reason.Text = " ";
             // 
-            // type
+            // publish
             // 
-            this.type.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.type.FillColor = System.Drawing.Color.White;
-            this.type.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.type.Location = new System.Drawing.Point(265, 163);
-            this.type.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.type.Maximum = 2147483647D;
-            this.type.Minimum = -2147483648D;
-            this.type.MinimumSize = new System.Drawing.Size(1, 1);
-            this.type.Name = "type";
-            this.type.Padding = new System.Windows.Forms.Padding(5);
-            this.type.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.type.Size = new System.Drawing.Size(150, 30);
-            this.type.Style = Sunny.UI.UIStyle.Orange;
-            this.type.TabIndex = 35;
+            this.publish.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.publish.FillColor = System.Drawing.Color.White;
+            this.publish.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.publish.Location = new System.Drawing.Point(265, 163);
+            this.publish.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.publish.Maximum = 2147483647D;
+            this.publish.Minimum = -2147483648D;
+            this.publish.MinimumSize = new System.Drawing.Size(1, 1);
+            this.publish.Name = "publish";
+            this.publish.Padding = new System.Windows.Forms.Padding(5);
+            this.publish.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.publish.Size = new System.Drawing.Size(150, 36);
+            this.publish.Style = Sunny.UI.UIStyle.Custom;
+            this.publish.TabIndex = 35;
             // 
             // author
             // 
@@ -154,26 +155,26 @@
             this.author.Name = "author";
             this.author.Padding = new System.Windows.Forms.Padding(5);
             this.author.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.author.Size = new System.Drawing.Size(150, 30);
-            this.author.Style = Sunny.UI.UIStyle.Orange;
+            this.author.Size = new System.Drawing.Size(150, 36);
+            this.author.Style = Sunny.UI.UIStyle.Custom;
             this.author.TabIndex = 34;
             // 
-            // publish
+            // type
             // 
-            this.publish.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.publish.FillColor = System.Drawing.Color.White;
-            this.publish.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.publish.Location = new System.Drawing.Point(265, 123);
-            this.publish.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.publish.Maximum = 2147483647D;
-            this.publish.Minimum = -2147483648D;
-            this.publish.MinimumSize = new System.Drawing.Size(1, 1);
-            this.publish.Name = "publish";
-            this.publish.Padding = new System.Windows.Forms.Padding(5);
-            this.publish.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.publish.Size = new System.Drawing.Size(150, 30);
-            this.publish.Style = Sunny.UI.UIStyle.Orange;
-            this.publish.TabIndex = 33;
+            this.type.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.type.FillColor = System.Drawing.Color.White;
+            this.type.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.type.Location = new System.Drawing.Point(265, 123);
+            this.type.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.type.Maximum = 2147483647D;
+            this.type.Minimum = -2147483648D;
+            this.type.MinimumSize = new System.Drawing.Size(1, 1);
+            this.type.Name = "type";
+            this.type.Padding = new System.Windows.Forms.Padding(5);
+            this.type.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.type.Size = new System.Drawing.Size(150, 36);
+            this.type.Style = Sunny.UI.UIStyle.Custom;
+            this.type.TabIndex = 33;
             // 
             // name
             // 
@@ -188,13 +189,13 @@
             this.name.Name = "name";
             this.name.Padding = new System.Windows.Forms.Padding(5);
             this.name.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.name.Size = new System.Drawing.Size(150, 30);
-            this.name.Style = Sunny.UI.UIStyle.Orange;
+            this.name.Size = new System.Drawing.Size(150, 36);
+            this.name.Style = Sunny.UI.UIStyle.Custom;
             this.name.TabIndex = 32;
             // 
             // recommand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(747, 492);
@@ -215,9 +216,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private Sunny.UI.UIButton yes;
         private Sunny.UI.UIRichTextBox reason;
-        private Sunny.UI.UITextBox type;
-        private Sunny.UI.UITextBox author;
         private Sunny.UI.UITextBox publish;
+        private Sunny.UI.UITextBox author;
+        private Sunny.UI.UITextBox type;
         private Sunny.UI.UITextBox name;
     }
 }

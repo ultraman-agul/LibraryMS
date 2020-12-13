@@ -98,6 +98,12 @@
     <Compile Include="usermain\recommand.Designer.cs">
       <DependentUpon>recommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="usermain\seat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usermain\seat.Designer.cs">
+      <DependentUpon>seat.cs</DependentUpon>
+    </Compile>
     <Compile Include="usermain\usermsg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usermain\recommand.resx">
       <DependentUpon>recommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermain\seat.resx">
+      <DependentUpon>seat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usermain\usermsg.resx">
       <DependentUpon>usermsg.cs</DependentUpon>
@@ -220,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\个人信息 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,13 +24,13 @@ namespace LibraryMS.usermain
         {
             string sql = "select * from users where id='" + global.username + "'";
             SqlDataReader data = SqlHelper.ExecuteReader(sql);
-          
+            
             if (data.Read())
             {
                 id.Text = global.username.ToString();
                 name.Text = data["name"].ToString();
                 sex.Text = data["sex"].ToString();
-                psd.Text = data["pwd"].ToString();
+                psd.Text = "";
                 email.Text = data["email"].ToString();
                 role.Text = data["role"].ToString();
                 id.Enabled = name.Enabled = sex.Enabled = psd.Enabled = email.Enabled = role.Enabled = false;
@@ -44,10 +44,15 @@ namespace LibraryMS.usermain
 
         private void uiButton7_Click(object sender, EventArgs e)
         {
-            string sql = "update users set name = '" + name.Text + "', sex = '" + sex.Text + "',email = '" + email.Text + "', role = '" + psd.Text + "' where id = '" + id.Text + "'";
+            string sql = "update users set name = '" + name.Text + "', sex = '" + sex.Text + "',email = '" + email.Text + "', role = '" + role.Text + "',pwd = '"+ SqlHelper.MD5Hash(psd.Text) +"' where id = '" + id.Text + "'";
             SqlHelper.ExecuteNonQuery(sql);
             UIMessageBox.ShowSuccess("修改成功");
             id.Enabled = name.Enabled = sex.Enabled = psd.Enabled = email.Enabled = role.Enabled = false;
+        }
+
+        private void email_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
