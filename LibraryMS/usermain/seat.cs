@@ -46,7 +46,7 @@ namespace LibraryMS.usermain
             else
             {
                 string sql2="insert into reseat(seatid,location,userid,username,retime,isbacktime) values('"+id+"','"+location+"','" + global.username + "','" + global.name + "','"+DateTime.Now.ToString("yyyy-MM-dd")+"','"+SqlHelper.ReTime(DateTime.Now.ToString("yyyy-MM-dd"),1)+"')";
-                string sql = "update seat set state = 1 where id='" + id + "'";
+                string sql = "update seat set state = 1 where seatno='" + id + "'";
                 if(SqlHelper.ExecuteNonQuery(sql)>0)
                 {
                     if (SqlHelper.ExecuteNonQuery(sql2) > 0)

@@ -1,5 +1,6 @@
 ﻿using LibraryMS.usermain;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,10 +53,25 @@ namespace LibraryMS
             global.borrowingnum = Convert.ToInt32(SqlHelper.ExecuteScalar(sql2));//当前角色总共可借数量
             global.days= Convert.ToInt32(SqlHelper.ExecuteScalar(sql3));
             global.canborrownum = global.borrowingnum - global.borrowednum;//如今可借
-            borrowing.Text = "可借阅次数：" + global.canborrownum;
+            borrowing.Text = "可借数量：" + global.canborrownum;
+
+            string now = DateTime.Now.ToString("yyyy-MM-dd");
+
+            string sqlid = "select seatid from reseat where isbacktime < " + "'"+now+"'";
+            string sqlloc = "select location from reseat where isbacktime < " + "'" + now + "'";
+            ArrayList arr = SqlHelper.DataReader(sqlid, "seatid");
+            ArrayList arr1 = SqlHelper.DataReader(sqlloc, "location");
 
             string sql4 = "delete from reseat where isbacktime<'" + DateTime.Now.ToString("yyyy-MM-dd") + "'";
-            string sql5 = "update seat set state=0 where isbacktime<'" + DateTime.Now.ToString("yyyy-MM-dd") + "'";
+            SqlHelper.ExecuteNonQuery(sql4);
+
+            string sql5;
+            for(int i = 0; i < arr.Count; i++)
+            {
+                sql5 = "update seat set state=0 where seatno ='" + arr[i].ToString() +"' and location = '" + arr1[i].ToString() +"'";
+                SqlHelper.ExecuteNonQuery(sql5);
+            }
+            
         }
 
         private void uiImageButton3_Click(object sender, EventArgs e)

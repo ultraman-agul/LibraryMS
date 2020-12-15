@@ -44,7 +44,7 @@ namespace LibraryMS
             SqlHelper.setCBB("select TypeName as good from bookType", "good", booktype);
             SqlHelper.setCBB("select typeName as good from usertype", "good", role);
             SqlHelper.setCBB("select distinct location from seat", "location", loc);
-
+            
 
         }
         #endregion
@@ -289,7 +289,24 @@ namespace LibraryMS
                     string sql3 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg";
                     SqlHelper.setGDV(sql3, borrowedmsg);
                     break;
+                case 4:
+                    // 读者推荐
+                    SqlHelper.setGDV("select id 编号, name 书籍名称, author 作者,type 书籍类型,publish 出版社,reason 推荐理由 from recommend", uiDataGridView9);
+                    break;
+                case 5:
+                    string sqladmin = "select * from admin where id='" + global.username + "'";
+                    SqlDataReader data = SqlHelper.ExecuteReader(sqladmin);
 
+                    if (data.Read())
+                    {
+                        uiTextBox10.Text = global.username.ToString();
+                        uiTextBox9.Text = data["name"].ToString();
+                        sex1.Text = data["sex"].ToString();
+                        psd1.Text = "";
+                        uiTextBox8.Text = data["email"].ToString();
+                        id.Enabled = name.Enabled = sex1.Enabled = psd1.Enabled = uiTextBox8.Enabled = false;
+                    }
+                    break;
             }
         }
 
@@ -481,6 +498,8 @@ namespace LibraryMS
         private void uiTabControl2_MouseClick(object sender, MouseEventArgs e)
         {
             type();
+            //座位预约信息
+            SqlHelper.setGDV("select id 编号,seatid 座位号, location 位置,userid 读者编号,retime 预约时间,isbacktime 归还时间  from reseat", uiDataGridView8);
         }
 
         private void seatmsg_SelectionChanged(object sender, EventArgs e)
@@ -580,6 +599,47 @@ namespace LibraryMS
                     break;
                
             }
+        }
+
+        // 添加管理员
+        private void uiSymbolButton6_Click(object sender, EventArgs e)
+        {
+           
+            string beChecked = uiRadioButton6.Checked ? uiRadioButton6.Text : uiRadioButton5.Text;
+            if (uiTextBox6.Text != null && uiTextBox5.Text != null && beChecked != null && uiTextBox4.Text != null)
+            {
+                string pwd = SqlHelper.MD5Hash(uiTextBox5.Text.ToString());
+                string sql = "insert into admin(name,pwd,sex,email) values('" + uiTextBox6.Text.ToString() + "','" + pwd + "','"+beChecked+"','"+uiTextBox4.Text.ToString().Trim()+"') ";
+                SqlHelper.ExecuteNonQuery(sql);
+                UIMessageBox.Show("添加成功！");
+            }
+            else
+            {
+                UIMessageBox.Show("请填写完整信息！");
+            }
+            uiTextBox6.Text = "";
+            uiTextBox5.Text = "";
+            uiTextBox4.Text = "";
+        }
+        
+        // 修改
+        private void uiButton6_Click(object sender, EventArgs e)
+        {
+            uiTextBox9.Enabled = sex1.Enabled = psd1.Enabled = uiTextBox8.Enabled = true;
+        }
+
+        // 保存
+        private void uiButton7_Click(object sender, EventArgs e)
+        {
+            string sqlsave = "update admin set name = '" + uiTextBox9.Text + "', sex = '" + sex1.Text + "',email = '" + uiTextBox8.Text + "',pwd = '" + SqlHelper.MD5Hash(psd1.Text) + "' where id = '" + uiTextBox10.Text + "'";
+            SqlHelper.ExecuteNonQuery(sqlsave);
+            UIMessageBox.ShowSuccess("修改成功");
+            id.Enabled = name.Enabled = sex1.Enabled = psd1.Enabled = email.Enabled = role.Enabled = false;
+        }
+
+        private void tabPage18_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

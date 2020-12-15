@@ -32,12 +32,14 @@
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiLabel1 = new Sunny.UI.UILabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiStyleManager1 = new Sunny.UI.UIStyleManager(this.components);
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.borrowing = new Sunny.UI.UILabel();
             this.borrowed = new Sunny.UI.UILabel();
             this.name = new Sunny.UI.UILabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.uiLabel6 = new Sunny.UI.UILabel();
@@ -54,19 +56,17 @@
             this.uiImageButton4 = new Sunny.UI.UIImageButton();
             this.uiImageButton2 = new Sunny.UI.UIImageButton();
             this.uiImageButton3 = new Sunny.UI.UIImageButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.uiImageButton1 = new Sunny.UI.UIImageButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.uiPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // uiPanel1
@@ -120,6 +120,17 @@
             this.uiLabel1.Text = "雷阳图书馆欢迎您";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::LibraryMS.Properties.Resources.stu;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(124, 108);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // uiStyleManager1
             // 
             this.uiStyleManager1.Style = Sunny.UI.UIStyle.Orange;
@@ -149,7 +160,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(42, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 21);
+            this.label1.Size = new System.Drawing.Size(72, 27);
             this.label1.TabIndex = 4;
             this.label1.Text = "姓名：";
             // 
@@ -158,7 +169,7 @@
             this.borrowing.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.borrowing.Location = new System.Drawing.Point(42, 256);
             this.borrowing.Name = "borrowing";
-            this.borrowing.Size = new System.Drawing.Size(125, 23);
+            this.borrowing.Size = new System.Drawing.Size(154, 23);
             this.borrowing.Style = Sunny.UI.UIStyle.Custom;
             this.borrowing.TabIndex = 3;
             this.borrowing.Text = "可借数量";
@@ -185,6 +196,16 @@
             this.name.TabIndex = 1;
             this.name.Text = "姓名";
             this.name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::LibraryMS.Properties.Resources.read;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(25, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(135, 113);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // uiLabel3
             // 
@@ -399,16 +420,6 @@
             this.uiImageButton3.Text = null;
             this.uiImageButton3.Click += new System.EventHandler(this.uiImageButton3_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::LibraryMS.Properties.Resources.read;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(25, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(135, 113);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // uiImageButton1
             // 
             this.uiImageButton1.BackgroundImage = global::LibraryMS.Properties.Resources.图书查询;
@@ -424,20 +435,9 @@
             this.uiImageButton1.Text = null;
             this.uiImageButton1.Click += new System.EventHandler(this.uiImageButton1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::LibraryMS.Properties.Resources.stu;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(124, 108);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // ReaderMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 546);
             this.Controls.Add(this.uiImageButton6);
@@ -465,16 +465,16 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReaderMain_FormClosing);
             this.Load += new System.EventHandler(this.ReaderMain_Load);
             this.uiPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.uiPanel2.ResumeLayout(false);
             this.uiPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
