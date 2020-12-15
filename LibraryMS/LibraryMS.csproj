@@ -92,6 +92,12 @@
     <Compile Include="usermain\borrowmsg.Designer.cs">
       <DependentUpon>borrowmsg.cs</DependentUpon>
     </Compile>
+    <Compile Include="usermain\messageB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usermain\messageB.Designer.cs">
+      <DependentUpon>messageB.cs</DependentUpon>
+    </Compile>
     <Compile Include="usermain\recommand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usermain\borrowmsg.resx">
       <DependentUpon>borrowmsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usermain\messageB.resx">
+      <DependentUpon>messageB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usermain\recommand.resx">
       <DependentUpon>recommand.cs</DependentUpon>
@@ -232,6 +241,36 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\学号.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\书名.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\作者.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\数量.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\出版社.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\类型 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日期.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\页数.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\字数.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\留言 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

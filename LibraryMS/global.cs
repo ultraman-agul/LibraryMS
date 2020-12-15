@@ -11,9 +11,11 @@ namespace LibraryMS
         public static string username = "";
         public static string role = "";
         public static string name = "";
+        public static string state;
         public static int borrowednum;
         public static int borrowingnum;
         public static int canborrownum;
+        public static int days;
         public static string nowdate= DateTime.Now.ToString("yyyy-MM-dd");
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,8 @@ namespace LibraryMS
             SqlHelper.setCBB("select typename from usertype", "typename", cbb);
             SqlHelper.setCBB("select TypeName as good from bookType", "good", booktype);
             SqlHelper.setCBB("select typeName as good from usertype", "good", role);
+            SqlHelper.setCBB("select distinct location from seat", "location", loc);
+
 
         }
         #endregion
@@ -100,6 +103,33 @@ namespace LibraryMS
 
             }
         }
+        private void uiTabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tabindex = uiTabControl1.SelectedIndex;
+            switch (tabindex)
+            {
+
+                case 0:
+                    string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql1, uiDataGridView4);
+                    break;
+                case 2:
+                    string sql2 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
+                    SqlHelper.setGDV(sql2, tushucaozuoDV);
+                    break;
+                case 3:
+                    string sql3 = "select  booktype 类型编号,  typename 类型名字 from booktype";
+                    SqlHelper.setGDV(sql3, uiDataGridView5);
+                    break;
+                case 4:
+                    string sql4 = "select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase";
+                    SqlHelper.setGDV(sql4, uiDataGridView7);
+                    break;
+
+
+            }
+        } 
+
         #endregion
 
         #region 用户管理
@@ -250,6 +280,16 @@ namespace LibraryMS
                     string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
                     SqlHelper.setGDV(sql1, uiDataGridView4);
                     break;
+                case 2:
+                    string sql2 = "select * from seat";
+                    SqlHelper.setGDV(sql2, seatmsg);
+                    break;
+
+                case 3:
+                    string sql3 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg";
+                    SqlHelper.setGDV(sql3, borrowedmsg);
+                    break;
+
             }
         }
 
@@ -416,6 +456,131 @@ namespace LibraryMS
             UIMessageBox.ShowSuccess("删除成功");
             SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
         }
+
+
         #endregion
+
+
+        #region 座位预约管理
+        private void bind()
+        {
+            string sql = "select * from seat";
+
+           // sql += uiComboBox1.SelectedItem + "'";
+
+            SqlHelper.setGDV(sql, seatmsg);
+        }
+
+        private void type()
+        {
+          
+            SqlHelper.setCBB("select distinct location from seat", "location", loc);
+
+        }
+
+        private void uiTabControl2_MouseClick(object sender, MouseEventArgs e)
+        {
+            type();
+        }
+
+        private void seatmsg_SelectionChanged(object sender, EventArgs e)
+        {
+            seatno.Enabled = reseat.Enabled = classroom.Enabled = false;
+            label1.Text = seatmsg[0, seatmsg.CurrentCell.RowIndex].Value.ToString();
+            seatno.Text = seatmsg[1, seatmsg.CurrentCell.RowIndex].Value.ToString();
+            reseat.Text = seatmsg[3, seatmsg.CurrentCell.RowIndex].Value.ToString();
+            classroom.Text = seatmsg[2, seatmsg.CurrentCell.RowIndex].Value.ToString();
+
+        }
+
+        private void xiugai_Click(object sender, EventArgs e)
+        {
+            seatno.Enabled = reseat.Enabled = classroom.Enabled = true;
+
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            seatno.Enabled = reseat.Enabled = classroom.Enabled = true;
+            seatno.Text = reseat.Text = classroom.Text = null;
+            global.state = "add";
+            type();
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            string sql = "delete from seat where id='" + label1.Text + "'";
+          int s=  SqlHelper.ExecuteNonQuery(sql);
+            if (s > 0)
+            {
+                UIMessageBox.Show("删除成功！");
+                bind();
+            }
+            else
+            {
+                UIMessageBox.Show("删除失败！"); bind();
+            }
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            if (global.state == "add")
+            {
+                string sql = "insert into seat(seatno,location,state) values('"+ seatno.Text + "','"+classroom.Text+"','"+reseat.Text+"')";
+                int s = SqlHelper.ExecuteNonQuery(sql);
+                if (s > 0)
+                {
+                    UIMessageBox.Show("添加成功！"); bind(); type();
+                }
+                else
+                {
+                    UIMessageBox.Show("添加失败！"); bind();
+                }
+            }
+            else
+            {
+                string sql = "update seat set seatno='" + seatno.Text + "',location='" + classroom.Text + "',state='" + reseat.Text + "'where id='"+label1.Text+"'";
+                int s = SqlHelper.ExecuteNonQuery(sql);
+                if (s > 0)
+                {
+                    UIMessageBox.Show("修改成功！"); bind();
+                }
+                else
+                {
+                    UIMessageBox.Show("修改失败！"); bind();
+                }
+            }
+        }
+
+        private void loc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //type();
+            string sql = "select * from seat where location = '"+loc.Text+"'";
+
+           // label1.Text = loc.SelectedItem.ToString();
+
+            SqlHelper.setGDV(sql, seatmsg);
+        }
+
+        #endregion
+
+        private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int s = uiComboBox1.SelectedIndex;
+            switch (s)
+            {
+                case 0:
+                    string sql3 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg";
+                    SqlHelper.setGDV(sql3, borrowedmsg);
+                    break;
+                case 1:
+                    string sql1 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg where isbacktime<'"+DateTime.Now+"'";
+                    SqlHelper.setGDV(sql1, borrowedmsg);
+                    break;
+               
+            }
+        }
     }
 }
+

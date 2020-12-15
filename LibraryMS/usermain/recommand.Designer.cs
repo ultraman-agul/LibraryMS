@@ -138,7 +138,7 @@
             this.publish.Name = "publish";
             this.publish.Padding = new System.Windows.Forms.Padding(5);
             this.publish.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.publish.Size = new System.Drawing.Size(150, 36);
+            this.publish.Size = new System.Drawing.Size(150, 30);
             this.publish.Style = Sunny.UI.UIStyle.Custom;
             this.publish.TabIndex = 35;
             // 
@@ -155,7 +155,7 @@
             this.author.Name = "author";
             this.author.Padding = new System.Windows.Forms.Padding(5);
             this.author.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.author.Size = new System.Drawing.Size(150, 36);
+            this.author.Size = new System.Drawing.Size(150, 30);
             this.author.Style = Sunny.UI.UIStyle.Custom;
             this.author.TabIndex = 34;
             // 
@@ -172,7 +172,7 @@
             this.type.Name = "type";
             this.type.Padding = new System.Windows.Forms.Padding(5);
             this.type.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.type.Size = new System.Drawing.Size(150, 36);
+            this.type.Size = new System.Drawing.Size(150, 30);
             this.type.Style = Sunny.UI.UIStyle.Custom;
             this.type.TabIndex = 33;
             // 
@@ -189,20 +189,20 @@
             this.name.Name = "name";
             this.name.Padding = new System.Windows.Forms.Padding(5);
             this.name.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.name.Size = new System.Drawing.Size(150, 36);
+            this.name.Size = new System.Drawing.Size(150, 30);
             this.name.Style = Sunny.UI.UIStyle.Custom;
             this.name.TabIndex = 32;
             // 
             // recommand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(747, 492);
             this.Controls.Add(this.uiTabControl1);
             this.Name = "recommand";
             this.Style = Sunny.UI.UIStyle.Custom;
-            this.Text = "k";
+            this.Text = "读者荐购";
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);

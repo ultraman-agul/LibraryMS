@@ -27,14 +27,14 @@ namespace LibraryMS.usermain
 
         private void uiDataGridView1_SelectIndexChange(object sender, int index)
         {
-            
+            caseid.Text = borrowmsgGV[0, borrowmsgGV.CurrentCell.RowIndex].Value.ToString();
             bookid.Text = borrowmsgGV[1, borrowmsgGV.CurrentCell.RowIndex].Value.ToString();
             bookname.Text= borrowmsgGV[2, borrowmsgGV.CurrentCell.RowIndex].Value.ToString();
         }
         
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            string sql = "delete from borrowmsg where bookid='" + bookid.Text + "'";
+            string sql = "delete from borrowmsg where caseid='" + caseid.Text + "'";
             bookid1 = bookid.Text;
            int com= SqlHelper.ExecuteNonQuery(sql);
             if(com>0)

@@ -48,7 +48,13 @@ namespace LibraryMS.usermain
 
         private void borrow_Click(object sender, EventArgs e)
         {
-            if (global.canborrownum <= 0)
+            string sqln = "select count(*) from borrowmsg where userid='" + global.username + "'";
+            int num = Convert.ToInt32(SqlHelper.ExecuteScalar(sqln));
+            label1.Text = num.ToString();
+            string d = global.nowdate;
+            int y = global.days;
+            string date = SqlHelper.ReTime(d,y);
+            if (global.canborrownum <=num) 
             {
                 UIMessageBox.Show("借阅数量已达上限");
 
@@ -61,14 +67,15 @@ namespace LibraryMS.usermain
 
                 if (state=="可供借阅")
                 {
-                    string sql = "insert into borrowmsg(bookid,bookname,userid,username,borrowtime,isbacktime) values('" + bookid.Text.Trim() + "','" + bookcname.Text.Trim() + "','" + global.username + "','" + global.name + "','" + global.nowdate + "','" + global.nowdate + "')";
+                    string sql = "insert into borrowmsg(caseid,bookid,bookname,userid,username,borrowtime,isbacktime) values('"+bookcid.Text+"','" + bookid.Text.Trim() + "','" + bookcname.Text.Trim() + "','" + global.username + "','" + global.name + "','" + global.nowdate + "','" + date + "')";
                     int n = SqlHelper.ExecuteNonQuery(sql);
                     if (n > 0)
                     {
                         UIMessageBox.Show("借阅成功");
-                        string sql3="update bookcase set state='"+global.nowdate+"' where caseid='"+bookcid.Text+"'";
+                        string s = date + "应还";
+                        string sql3="update bookcase set state='"+s+"' where caseid='"+bookcid.Text+"'";
                         SqlHelper.ExecuteNonQuery(sql3);
-                        string sql4 = "select * from bookcase";
+                        string sql4 = "select * from bookcase where caseid='"+bookcid.Text+"'";
                         SqlHelper.setGDV(sql4, bookcase);
 
                     }

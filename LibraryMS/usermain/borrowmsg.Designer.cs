@@ -36,6 +36,7 @@
             this.bookid = new Sunny.UI.UITextBox();
             this.bookname = new Sunny.UI.UITextBox();
             this.uiButton1 = new Sunny.UI.UIButton();
+            this.caseid = new Sunny.UI.UITextBox();
             ((System.ComponentModel.ISupportInitialize)(this.borrowmsgGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +86,7 @@
             this.bookid.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bookid.FillColor = System.Drawing.Color.White;
             this.bookid.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.bookid.Location = new System.Drawing.Point(62, 283);
+            this.bookid.Location = new System.Drawing.Point(62, 322);
             this.bookid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bookid.Maximum = 2147483647D;
             this.bookid.Minimum = -2147483648D;
@@ -102,7 +103,7 @@
             this.bookname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bookname.FillColor = System.Drawing.Color.White;
             this.bookname.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.bookname.Location = new System.Drawing.Point(62, 333);
+            this.bookname.Location = new System.Drawing.Point(62, 366);
             this.bookname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bookname.Maximum = 2147483647D;
             this.bookname.Minimum = -2147483648D;
@@ -122,7 +123,7 @@
             this.uiButton1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiButton1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(86, 370);
+            this.uiButton1.Location = new System.Drawing.Point(81, 403);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
@@ -135,11 +136,29 @@
             this.uiButton1.Text = "归还";
             this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
+            // caseid
+            // 
+            this.caseid.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.caseid.FillColor = System.Drawing.Color.White;
+            this.caseid.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.caseid.Location = new System.Drawing.Point(62, 283);
+            this.caseid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.caseid.Maximum = 2147483647D;
+            this.caseid.Minimum = -2147483648D;
+            this.caseid.MinimumSize = new System.Drawing.Size(1, 1);
+            this.caseid.Name = "caseid";
+            this.caseid.Padding = new System.Windows.Forms.Padding(5);
+            this.caseid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.caseid.Size = new System.Drawing.Size(150, 29);
+            this.caseid.Style = Sunny.UI.UIStyle.Orange;
+            this.caseid.TabIndex = 4;
+            // 
             // borrowmsg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 441);
+            this.Controls.Add(this.caseid);
             this.Controls.Add(this.uiButton1);
             this.Controls.Add(this.bookname);
             this.Controls.Add(this.bookid);
@@ -159,5 +178,6 @@
         private Sunny.UI.UITextBox bookid;
         private Sunny.UI.UITextBox bookname;
         private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UITextBox caseid;
     }
 }

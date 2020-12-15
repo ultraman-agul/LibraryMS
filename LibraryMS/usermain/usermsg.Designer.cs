@@ -66,6 +66,7 @@
             this.id.Size = new System.Drawing.Size(150, 30);
             this.id.Style = Sunny.UI.UIStyle.Orange;
             this.id.TabIndex = 0;
+            this.id.Watermark = "学号/工号";
             // 
             // name
             // 
@@ -83,6 +84,7 @@
             this.name.Size = new System.Drawing.Size(150, 30);
             this.name.Style = Sunny.UI.UIStyle.Orange;
             this.name.TabIndex = 2;
+            this.name.Watermark = "姓名";
             // 
             // psd
             // 
@@ -100,6 +102,8 @@
             this.psd.Size = new System.Drawing.Size(150, 30);
             this.psd.Style = Sunny.UI.UIStyle.Orange;
             this.psd.TabIndex = 4;
+            this.psd.Text = "密码";
+            this.psd.Watermark = "密码";
             // 
             // sex
             // 
@@ -117,6 +121,7 @@
             this.sex.Size = new System.Drawing.Size(150, 30);
             this.sex.Style = Sunny.UI.UIStyle.Orange;
             this.sex.TabIndex = 6;
+            this.sex.Watermark = "性别";
             // 
             // email
             // 
@@ -134,6 +139,7 @@
             this.email.Size = new System.Drawing.Size(150, 30);
             this.email.Style = Sunny.UI.UIStyle.Orange;
             this.email.TabIndex = 8;
+            this.email.Watermark = "邮箱";
             this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             // 
             // uiButton6
@@ -194,6 +200,7 @@
             this.role.Size = new System.Drawing.Size(150, 30);
             this.role.Style = Sunny.UI.UIStyle.Orange;
             this.role.TabIndex = 12;
+            this.role.Watermark = "身份";
             // 
             // pictureBox1
             // 

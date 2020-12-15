@@ -43,14 +43,19 @@ namespace LibraryMS
                 global.name=name.Text = data["name"].ToString();
             }
             string sql1 = "select count(*) from borrowmsg where userid= '" + global.username + "'";
-            global.borrowednum = (int)SqlHelper.ExecuteScalar(sql1);
+            global.borrowednum =Convert.ToInt32(SqlHelper.ExecuteScalar(sql1));
                        
         
             borrowed.Text = "借阅情况："+global.borrowednum+"本";
             string sql2 = "select numbers from usertype,users where usertype.typename=users.role and users.id='" + global.username + "'";
-            global.borrowingnum = (int)SqlHelper.ExecuteScalar(sql2);//当前角色总共可借数量
+            string sql3 = "select days from usertype,users where usertype.typename=users.role and users.id='" + global.username + "'";
+            global.borrowingnum = Convert.ToInt32(SqlHelper.ExecuteScalar(sql2));//当前角色总共可借数量
+            global.days= Convert.ToInt32(SqlHelper.ExecuteScalar(sql3));
             global.canborrownum = global.borrowingnum - global.borrowednum;//如今可借
             borrowing.Text = "可借阅次数：" + global.canborrownum;
+
+            string sql4 = "delete from reseat where isbacktime<'" + DateTime.Now.ToString("yyyy-MM-dd") + "'";
+            string sql5 = "update seat set state=0 where isbacktime<'" + DateTime.Now.ToString("yyyy-MM-dd") + "'";
         }
 
         private void uiImageButton3_Click(object sender, EventArgs e)
@@ -80,6 +85,11 @@ namespace LibraryMS
         private void uiImageButton5_Click(object sender, EventArgs e)
         {
             new seat().Show();
+        }
+
+        private void uiImageButton6_Click(object sender, EventArgs e)
+        {
+            new messageB().Show();
         }
     }
 }

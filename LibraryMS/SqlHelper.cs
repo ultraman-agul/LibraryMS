@@ -19,6 +19,33 @@ namespace LibraryMS
         {
             return ConfigurationManager.ConnectionStrings["sqlConnection"].ToString();
         }
+
+
+        public static string ReTime(string data, int str)
+        {
+            DateTime dt = DateTime.Parse(data);
+            int year = dt.Year;
+            int month = dt.Month;
+            int day = dt.Day;
+            int n = DateTime.DaysInMonth(year, month);
+            int k = day + str;
+            if (k > n)
+            {
+                day = str - (n - day);
+                month = month + 1;
+                if (month > 12)
+                {
+                    month = 1;
+                    year = year + 1;
+                }
+            }
+            else
+            {
+                day = day + str;
+            }
+            string c = year + "-" + month + "-" + day;
+            return c;
+        }
         //适合增删改操作，返回影响条数
         public static int ExecuteNonQuery(string sql, params SqlParameter[] parameters)
         {
@@ -60,7 +87,7 @@ namespace LibraryMS
                         comm.CommandText = sql;
                         if (parameters != null)
                             comm.Parameters.AddRange(parameters);
-                        return comm.ExecuteScalar();
+                        return comm.ExecuteScalar().ToString();
                     }
                     catch (Exception ex)
                     {

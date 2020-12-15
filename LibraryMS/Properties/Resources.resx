@@ -121,8 +121,8 @@
   <data name="性别 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\性别 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="borrowbook" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\image\borrowbook.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="角色" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\角色.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="图书查询" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\图书查询.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,61 +130,91 @@
   <data name="图书" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\图书.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="角色" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\角色.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="学号" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\学号.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="推荐" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\推荐.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\image\login2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="姓名1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\姓名.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\image\stu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="自习室" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\自习室.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="邮箱" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\邮箱.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="姓名" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\image\姓名.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="出版社" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\出版社.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rentou" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image\rentou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="密码" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\密码.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="日期" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\日期.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="姓名1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\姓名.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="推荐" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\推荐.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="留言" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\留言.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\image\search.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="read" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\image\read.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="姓名 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\姓名 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="书本" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\书本.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="编号" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\编号.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="书名" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\书名.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="个人信息" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\个人信息.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="密码" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\密码.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="borrowbook" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\borrowbook.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="页数" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\页数.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image\login.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="stu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\stu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="姓名 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\姓名 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="作者" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\作者.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="邮箱" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\邮箱.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\read.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="书本" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\书本.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\search.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="自习室" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\自习室.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="姓名" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\姓名.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="字数" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\字数.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="类型 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\类型 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="编号" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\编号.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="数量" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\数量.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="个人信息 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\个人信息 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\login2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="留言 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\留言 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
