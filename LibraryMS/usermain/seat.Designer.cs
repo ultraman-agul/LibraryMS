@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(seat));
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
             this.uiLabel1 = new Sunny.UI.UILabel();
@@ -41,8 +42,8 @@
             this.uiImageButton2 = new Sunny.UI.UIImageButton();
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.loc = new Sunny.UI.UITextBox();
             this.seatno = new Sunny.UI.UITextBox();
+            this.loc = new Sunny.UI.UITextBox();
             this.uiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).BeginInit();
@@ -197,32 +198,17 @@
             // 
             this.uiPanel2.Controls.Add(this.seatno);
             this.uiPanel2.Controls.Add(this.loc);
-            this.uiPanel2.FillColor = System.Drawing.Color.White;
+            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel2.Location = new System.Drawing.Point(567, 79);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel2.Size = new System.Drawing.Size(218, 293);
             this.uiPanel2.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel2.TabIndex = 7;
-            // 
-            // loc
-            // 
-            this.loc.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.loc.FillColor = System.Drawing.Color.White;
-            this.loc.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.loc.Location = new System.Drawing.Point(37, 66);
-            this.loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.loc.Maximum = 2147483647D;
-            this.loc.Minimum = -2147483648D;
-            this.loc.MinimumSize = new System.Drawing.Size(1, 1);
-            this.loc.Name = "loc";
-            this.loc.Padding = new System.Windows.Forms.Padding(5);
-            this.loc.Size = new System.Drawing.Size(150, 29);
-            this.loc.Style = Sunny.UI.UIStyle.Custom;
-            this.loc.TabIndex = 0;
-            this.loc.Text = "位置";
+            this.uiPanel2.Text = null;
             // 
             // seatno
             // 
@@ -236,10 +222,31 @@
             this.seatno.MinimumSize = new System.Drawing.Size(1, 1);
             this.seatno.Name = "seatno";
             this.seatno.Padding = new System.Windows.Forms.Padding(5);
+            this.seatno.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.seatno.Size = new System.Drawing.Size(150, 29);
             this.seatno.Style = Sunny.UI.UIStyle.Custom;
             this.seatno.TabIndex = 1;
             this.seatno.Text = "座位号";
+            this.seatno.Watermark = "座位号";
+            // 
+            // loc
+            // 
+            this.loc.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.loc.FillColor = System.Drawing.Color.White;
+            this.loc.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.loc.Location = new System.Drawing.Point(37, 66);
+            this.loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.loc.Maximum = 2147483647D;
+            this.loc.Minimum = -2147483648D;
+            this.loc.MinimumSize = new System.Drawing.Size(1, 1);
+            this.loc.Name = "loc";
+            this.loc.Padding = new System.Windows.Forms.Padding(5);
+            this.loc.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.loc.Size = new System.Drawing.Size(150, 29);
+            this.loc.Style = Sunny.UI.UIStyle.Custom;
+            this.loc.TabIndex = 0;
+            this.loc.Text = "位置";
+            this.loc.Watermark = "位置";
             // 
             // seat
             // 
@@ -254,9 +261,10 @@
             this.Controls.Add(this.uiTextBox1);
             this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.uiPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "seat";
             this.Style = Sunny.UI.UIStyle.Custom;
-            this.Text = "Seat";
+            this.Text = "座位预约";
             this.Load += new System.EventHandler(this.seat_Load);
             this.uiPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();

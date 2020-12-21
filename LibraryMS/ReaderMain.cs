@@ -107,5 +107,10 @@ namespace LibraryMS
         {
             new messageB().Show();
         }
+
+        private void uiLabel8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

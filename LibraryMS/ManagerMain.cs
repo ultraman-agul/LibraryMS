@@ -281,7 +281,7 @@ namespace LibraryMS
                     SqlHelper.setGDV(sql1, uiDataGridView4);
                     break;
                 case 2:
-                    string sql2 = "select * from seat";
+                    string sql2 = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat";
                     SqlHelper.setGDV(sql2, seatmsg);
                     break;
 
@@ -481,7 +481,7 @@ namespace LibraryMS
         #region 座位预约管理
         private void bind()
         {
-            string sql = "select * from seat";
+            string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat";
 
            // sql += uiComboBox1.SelectedItem + "'";
 
@@ -575,7 +575,7 @@ namespace LibraryMS
         private void loc_SelectedIndexChanged(object sender, EventArgs e)
         {
             //type();
-            string sql = "select * from seat where location = '"+loc.Text+"'";
+            string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat where location = '" + loc.Text+"'";
 
            // label1.Text = loc.SelectedItem.ToString();
 

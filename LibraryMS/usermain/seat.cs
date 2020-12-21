@@ -22,7 +22,7 @@ namespace LibraryMS.usermain
 
         private void seat_Load(object sender, EventArgs e)
         {
-            string sql = "select * from seat";
+            string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat";
             SqlHelper.setGDV(sql, uiDataGridView1);
             string sql3 = "select * from reseat where userid= '" + global.username + "'";
             SqlDataReader sdr = SqlHelper.ExecuteReader(sql3);
@@ -45,25 +45,32 @@ namespace LibraryMS.usermain
             }
             else
             {
-                string sql2="insert into reseat(seatid,location,userid,username,retime,isbacktime) values('"+id+"','"+location+"','" + global.username + "','" + global.name + "','"+DateTime.Now.ToString("yyyy-MM-dd")+"','"+SqlHelper.ReTime(DateTime.Now.ToString("yyyy-MM-dd"),1)+"')";
-                string sql = "update seat set state = 1 where seatno='" + id + "'";
-                if(SqlHelper.ExecuteNonQuery(sql)>0)
+                string sql4= "select state from seat where seatno='" + id + "' and location='"+location+"'";
+                if (SqlHelper.ExecuteScalar(sql4).ToString() == "True")
                 {
-                    if (SqlHelper.ExecuteNonQuery(sql2) > 0)
-                    {
-                        UIMessageBox.ShowSuccess("预约成功！");
-                        string sql3 = "select * from reseat where userid= '" + global.username + "'";
-                        SqlDataReader sdr = SqlHelper.ExecuteReader(sql3);
-                        if (sdr.Read())
-                        {
-                        loc.Text = sdr["location"].ToString();
-                        seatno.Text = sdr["seatid"].ToString();
-                        }
-                        
-                    }
-                   
+
+                    UIMessageBox.Show("该座位已经被预约！");
                 }
-                SqlHelper.setGDV("select * from seat", uiDataGridView1);
+                else { 
+                string sql2="insert into reseat(seatid,location,userid,username,retime,isbacktime) values('"+id+"','"+location+"','" + global.username + "','" + global.name + "','"+DateTime.Now.ToString("yyyy-MM-dd")+"','"+SqlHelper.ReTime(DateTime.Now.ToString("yyyy-MM-dd"),1)+"')";
+                string sql = "update seat set state = 1 where seatno='" + id + "' and location='" + location + "'";
+                    if (SqlHelper.ExecuteNonQuery(sql) > 0)
+                    {
+                        if (SqlHelper.ExecuteNonQuery(sql2) > 0)
+                        {
+                            UIMessageBox.ShowSuccess("预约成功！");
+                            string sql3 = "select * from reseat where userid= '" + global.username + "'";
+                            SqlDataReader sdr = SqlHelper.ExecuteReader(sql3);
+                            if (sdr.Read())
+                            {
+                                loc.Text = sdr["location"].ToString();
+                                seatno.Text = sdr["seatid"].ToString();
+                            }
+
+                        }
+                    }
+                }
+                SqlHelper.setGDV("select id 编号,seatno 座位号,location 位置,state 预约状态 from seat", uiDataGridView1);
             }
         }
         // 座位id
@@ -91,7 +98,7 @@ namespace LibraryMS.usermain
         // 位置选择
         private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sql = "select * from seat where location = '" + uiComboBox1.Text + "'";
+            string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat where location = '" + uiComboBox1.Text + "'";
 
 
             SqlHelper.setGDV(sql, uiDataGridView1);
@@ -121,7 +128,7 @@ namespace LibraryMS.usermain
                        loc.Text = " ";
                     }
                 }
-                SqlHelper.setGDV("select * from seat", uiDataGridView1);
+                SqlHelper.setGDV("select id 编号,seatno 座位号,location 位置,state 预约状态 from seat", uiDataGridView1);
             }
         }
     }

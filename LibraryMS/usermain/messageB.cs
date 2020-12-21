@@ -24,8 +24,13 @@ namespace LibraryMS.usermain
             DataTable dt = SqlHelper.ExecuteDataTable("select * from messageB");
             rowcount = dt.Rows.Count;
             int temp = index - 10;
-            string sql = "select top 10 * from messageB where id not in (select top "+temp+" id from messageB)";
+            string sql = "select top 10 id 编号,userid 用户账号,date 留言日期,message 留言 from messageB where id not in (select top "+temp+" id from messageB)";
             SqlHelper.setGDV(sql, uiDataGridView1);
+            uiDataGridView1.Columns[0].Width = 50;
+            uiDataGridView1.Columns[1].Width = 120;
+            uiDataGridView1.Columns[2].Width = 120;
+            
+            uiDataGridView1.Rows[0].Height = 18;
         }
         //上一行
         private void uiButton1_Click(object sender, EventArgs e)
@@ -34,7 +39,7 @@ namespace LibraryMS.usermain
             if(index >= 10)
             {
                 int temp = index - 10;
-                string sql = "select top 10 * from messageB where id not in (select top " + temp + " id from messageB)";
+                string sql = "select top 10 id 编号,userid 用户账号,date 留言日期,message 留言 from messageB where id not in (select top " + temp + " id from messageB)";
                 SqlHelper.setGDV(sql, uiDataGridView1);
             }
             else
@@ -52,7 +57,7 @@ namespace LibraryMS.usermain
             if (index > 10 && index < rowcount+10)
             {
                 int temp = index - 10;
-                string sql = "select top 10 * from messageB where id not in (select top " + temp + " id from messageB)";
+                string sql = "select top 10 id 编号,userid 用户账号,date 留言日期,message 留言 from messageB where id not in (select top " + temp + " id from messageB)";
                 SqlHelper.setGDV(sql, uiDataGridView1);
             }
             else if(index > rowcount)

@@ -282,7 +282,7 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.id);
             this.Name = "usermsg";
-            this.Text = " ";
+            this.Text = " 个人信息";
             this.Load += new System.EventHandler(this.usermsg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

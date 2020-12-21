@@ -21,7 +21,7 @@ namespace LibraryMS.usermain
         string bookid1;
         private void borrowmsg_Load(object sender, EventArgs e)
         {
-            string sql = "select * from borrowmsg where userid='" + global.username + "'";
+            string sql = "select caseid 索书号,bookid 图书编号,bookname 图书名称,userid 用户账号,username 用户名,borrowtime 借书时间,isbacktime 归还时间 from borrowmsg where userid='" + global.username + "'";
             SqlHelper.setGDV(sql,borrowmsgGV);
         }
 
@@ -43,7 +43,7 @@ namespace LibraryMS.usermain
                 string s = "可供借阅";
                 string sql3 = "update bookcase set state='" + s + "' where id='" + bookid1 + "'";
                 SqlHelper.ExecuteNonQuery(sql3);
-                string sql1 = "select * from borrowmsg where userid='" + global.username + "'";
+                string sql1 = "select caseid 索书号,bookid 图书编号,bookname 图书名称,userid 用户账号,username 用户名,borrowtime 借书时间,isbacktime 归还时间 from borrowmsg where userid='" + global.username + "'";
                 SqlHelper.setGDV(sql1, borrowmsgGV);
 
 

@@ -82,7 +82,7 @@
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiPanel1.Size = new System.Drawing.Size(821, 108);
+            this.uiPanel1.Size = new System.Drawing.Size(840, 108);
             this.uiPanel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
@@ -150,7 +150,7 @@
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
             this.uiPanel2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiPanel2.Size = new System.Drawing.Size(199, 403);
+            this.uiPanel2.Size = new System.Drawing.Size(199, 405);
             this.uiPanel2.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
@@ -160,7 +160,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(42, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 27);
+            this.label1.Size = new System.Drawing.Size(58, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "姓名：";
             // 
@@ -317,7 +317,7 @@
             // 
             this.uiLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiLabel5.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel5.Location = new System.Drawing.Point(225, 501);
+            this.uiLabel5.Location = new System.Drawing.Point(225, 498);
             this.uiLabel5.Name = "uiLabel5";
             this.uiLabel5.Size = new System.Drawing.Size(131, 45);
             this.uiLabel5.Style = Sunny.UI.UIStyle.Custom;
@@ -329,7 +329,7 @@
             // 
             this.uiLabel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiLabel7.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel7.Location = new System.Drawing.Point(442, 501);
+            this.uiLabel7.Location = new System.Drawing.Point(442, 498);
             this.uiLabel7.Name = "uiLabel7";
             this.uiLabel7.Size = new System.Drawing.Size(131, 45);
             this.uiLabel7.Style = Sunny.UI.UIStyle.Custom;
@@ -341,13 +341,14 @@
             // 
             this.uiLabel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiLabel8.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel8.Location = new System.Drawing.Point(663, 501);
+            this.uiLabel8.Location = new System.Drawing.Point(663, 498);
             this.uiLabel8.Name = "uiLabel8";
             this.uiLabel8.Size = new System.Drawing.Size(131, 45);
             this.uiLabel8.Style = Sunny.UI.UIStyle.Custom;
             this.uiLabel8.TabIndex = 17;
             this.uiLabel8.Text = "读者留言";
             this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiLabel8.Click += new System.EventHandler(this.uiLabel8_Click);
             // 
             // uiImageButton6
             // 
@@ -437,9 +438,9 @@
             // 
             // ReaderMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 546);
+            this.ClientSize = new System.Drawing.Size(840, 548);
             this.Controls.Add(this.uiImageButton6);
             this.Controls.Add(this.uiLabel8);
             this.Controls.Add(this.uiLabel7);

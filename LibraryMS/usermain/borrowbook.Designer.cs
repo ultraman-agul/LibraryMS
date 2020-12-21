@@ -44,17 +44,16 @@
             this.bookcid = new Sunny.UI.UITextBox();
             this.borrow = new Sunny.UI.UIButton();
             this.uiPanel3 = new Sunny.UI.UIPanel();
+            this.bookcase = new Sunny.UI.UIDataGridView();
             this.uiPanel4 = new Sunny.UI.UIPanel();
             this.bookid = new Sunny.UI.UITextBox();
             this.bookcname = new Sunny.UI.UITextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bookcase = new Sunny.UI.UIDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mainGV)).BeginInit();
             this.uiPanel1.SuspendLayout();
             this.uiPanel2.SuspendLayout();
             this.uiPanel3.SuspendLayout();
-            this.uiPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookcase)).BeginInit();
+            this.uiPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // search
@@ -65,7 +64,7 @@
             this.search.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.search.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.search.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.search.Location = new System.Drawing.Point(785, 2);
+            this.search.Location = new System.Drawing.Point(896, 3);
             this.search.MinimumSize = new System.Drawing.Size(1, 1);
             this.search.Name = "search";
             this.search.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
@@ -150,7 +149,7 @@
             this.bookname.Name = "bookname";
             this.bookname.Padding = new System.Windows.Forms.Padding(5);
             this.bookname.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookname.Size = new System.Drawing.Size(785, 62);
+            this.bookname.Size = new System.Drawing.Size(885, 62);
             this.bookname.Style = Sunny.UI.UIStyle.Orange;
             this.bookname.TabIndex = 2;
             this.bookname.Watermark = "           请输入书名";
@@ -225,69 +224,6 @@
             this.uiPanel3.TabIndex = 10;
             this.uiPanel3.Text = null;
             // 
-            // uiPanel4
-            // 
-            this.uiPanel4.Controls.Add(this.bookid);
-            this.uiPanel4.Controls.Add(this.bookcname);
-            this.uiPanel4.Controls.Add(this.bookcid);
-            this.uiPanel4.Controls.Add(this.borrow);
-            this.uiPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
-            this.uiPanel4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel4.Location = new System.Drawing.Point(682, 462);
-            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel4.Name = "uiPanel4";
-            this.uiPanel4.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiPanel4.Size = new System.Drawing.Size(204, 183);
-            this.uiPanel4.Style = Sunny.UI.UIStyle.Orange;
-            this.uiPanel4.TabIndex = 11;
-            this.uiPanel4.Text = null;
-            // 
-            // bookid
-            // 
-            this.bookid.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bookid.FillColor = System.Drawing.Color.White;
-            this.bookid.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.bookid.Location = new System.Drawing.Point(4, 52);
-            this.bookid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bookid.Maximum = 2147483647D;
-            this.bookid.Minimum = -2147483648D;
-            this.bookid.MinimumSize = new System.Drawing.Size(1, 1);
-            this.bookid.Name = "bookid";
-            this.bookid.Padding = new System.Windows.Forms.Padding(5);
-            this.bookid.ReadOnly = true;
-            this.bookid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookid.Size = new System.Drawing.Size(133, 29);
-            this.bookid.Style = Sunny.UI.UIStyle.Orange;
-            this.bookid.TabIndex = 10;
-            // 
-            // bookcname
-            // 
-            this.bookcname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bookcname.FillColor = System.Drawing.Color.White;
-            this.bookcname.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.bookcname.Location = new System.Drawing.Point(4, 91);
-            this.bookcname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bookcname.Maximum = 2147483647D;
-            this.bookcname.Minimum = -2147483648D;
-            this.bookcname.MinimumSize = new System.Drawing.Size(1, 1);
-            this.bookcname.Name = "bookcname";
-            this.bookcname.Padding = new System.Windows.Forms.Padding(5);
-            this.bookcname.ReadOnly = true;
-            this.bookcname.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookcname.Size = new System.Drawing.Size(133, 29);
-            this.bookcname.Style = Sunny.UI.UIStyle.Orange;
-            this.bookcname.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(927, 491);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 21);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
-            // 
             // bookcase
             // 
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
@@ -332,12 +268,67 @@
             this.bookcase.TabIndex = 9;
             this.bookcase.SelectIndexChange += new Sunny.UI.UIDataGridView.OnSelectIndexChange(this.bookcsae_SelectIndexChange);
             // 
+            // uiPanel4
+            // 
+            this.uiPanel4.AutoSize = true;
+            this.uiPanel4.Controls.Add(this.bookid);
+            this.uiPanel4.Controls.Add(this.bookcname);
+            this.uiPanel4.Controls.Add(this.bookcid);
+            this.uiPanel4.Controls.Add(this.borrow);
+            this.uiPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
+            this.uiPanel4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiPanel4.Location = new System.Drawing.Point(744, 462);
+            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel4.Name = "uiPanel4";
+            this.uiPanel4.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.uiPanel4.Size = new System.Drawing.Size(186, 183);
+            this.uiPanel4.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel4.TabIndex = 11;
+            this.uiPanel4.Text = null;
+            // 
+            // bookid
+            // 
+            this.bookid.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bookid.FillColor = System.Drawing.Color.White;
+            this.bookid.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.bookid.Location = new System.Drawing.Point(4, 52);
+            this.bookid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bookid.Maximum = 2147483647D;
+            this.bookid.Minimum = -2147483648D;
+            this.bookid.MinimumSize = new System.Drawing.Size(1, 1);
+            this.bookid.Name = "bookid";
+            this.bookid.Padding = new System.Windows.Forms.Padding(5);
+            this.bookid.ReadOnly = true;
+            this.bookid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.bookid.Size = new System.Drawing.Size(133, 29);
+            this.bookid.Style = Sunny.UI.UIStyle.Orange;
+            this.bookid.TabIndex = 10;
+            // 
+            // bookcname
+            // 
+            this.bookcname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bookcname.FillColor = System.Drawing.Color.White;
+            this.bookcname.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.bookcname.Location = new System.Drawing.Point(4, 91);
+            this.bookcname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bookcname.Maximum = 2147483647D;
+            this.bookcname.Minimum = -2147483648D;
+            this.bookcname.MinimumSize = new System.Drawing.Size(1, 1);
+            this.bookcname.Name = "bookcname";
+            this.bookcname.Padding = new System.Windows.Forms.Padding(5);
+            this.bookcname.ReadOnly = true;
+            this.bookcname.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.bookcname.Size = new System.Drawing.Size(133, 29);
+            this.bookcname.Style = Sunny.UI.UIStyle.Orange;
+            this.bookcname.TabIndex = 9;
+            // 
             // borrowbook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1011, 650);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.uiPanel4);
             this.Controls.Add(this.uiPanel3);
             this.Controls.Add(this.uiPanel2);
@@ -350,8 +341,8 @@
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel2.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
-            this.uiPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bookcase)).EndInit();
+            this.uiPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +360,6 @@
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UITextBox bookcname;
         private Sunny.UI.UITextBox bookid;
-        private System.Windows.Forms.Label label1;
         private Sunny.UI.UIDataGridView bookcase;
     }
 }

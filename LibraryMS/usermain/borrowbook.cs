@@ -13,7 +13,7 @@ namespace LibraryMS.usermain
 
         private void borrowbook_Load(object sender, EventArgs e)
         {
-            string sql = "select * from book";
+            string sql = "select id 图书编号,bookName 图书名称,bookType 图书类型,bookNumber 馆藏数量,author 作者,publishCompany 出版社,publishDate 出版日期,pages 页数,wordsNumber 字数 from book";
             SqlHelper.setGDV(sql, mainGV);
             bookcid.Enabled = bookid.Enabled = bookcname.Enabled = borrow.Enabled = false;
 
@@ -24,11 +24,11 @@ namespace LibraryMS.usermain
             string sql = "";
             if (bookname.Text.Trim()!= null)
             {
-                 sql="select * from book where bookName like '%"+bookname.Text.Trim()+"%'";
+                 sql= "select id 图书编号,bookName 图书名称,bookType 图书类型,bookNumber 馆藏数量,author 作者,publishCompany 出版社,publishDate 出版日期,pages 页数,wordsNumber 字数 from book where bookName like '%" + bookname.Text.Trim()+"%'";
             }
             else
             {
-                sql = "select * from book";
+                sql = "select id 图书编号,bookName 图书名称,bookType 图书类型,bookNumber 馆藏数量,author 作者,publishCompany 出版社,publishDate 出版日期,pages 页数,wordsNumber 字数 from book";
             }
             SqlHelper.setGDV(sql, mainGV);
         }
@@ -50,11 +50,11 @@ namespace LibraryMS.usermain
         {
             string sqln = "select count(*) from borrowmsg where userid='" + global.username + "'";
             int num = Convert.ToInt32(SqlHelper.ExecuteScalar(sqln));
-            label1.Text = num.ToString();
+           // label1.Text = num.ToString();
             string d = global.nowdate;
             int y = global.days;
             string date = SqlHelper.ReTime(d,y);
-            if (global.canborrownum <=num) 
+            if (global.borrowingnum <= num) 
             {
                 UIMessageBox.Show("借阅数量已达上限");
 
@@ -94,7 +94,7 @@ namespace LibraryMS.usermain
         private void mainGV_SelectIndexChange(object sender, int index)
         {
             string id= mainGV[0, mainGV.CurrentCell.RowIndex].Value.ToString();
-            string sql = "select * from bookcase where id='" + id + "'";
+            string sql = "select caseid 索书号,id 图书编号,address 馆藏地址,state 借阅状态 from bookcase where id='" + id + "'";
             SqlHelper.setGDV(sql,bookcase);
         }
 
