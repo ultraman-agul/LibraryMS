@@ -15,7 +15,7 @@ winform C# 图书馆管理系统
 ![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/System.png)
 
 + 管理员模块业务流程图
-![]()
+![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/Admin.png)
 
 + 用户模块业务流程图
-![]()
+![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/Users.png)
