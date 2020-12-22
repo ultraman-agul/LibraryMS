@@ -24,7 +24,6 @@ namespace LibraryMS.usermain
         {
             string sql = "select * from users where id='" + global.username + "'";
             SqlDataReader data = SqlHelper.ExecuteReader(sql);
-            
             if (data.Read())
             {
                 id.Text = global.username.ToString();
@@ -48,11 +47,6 @@ namespace LibraryMS.usermain
             SqlHelper.ExecuteNonQuery(sql);
             UIMessageBox.ShowSuccess("修改成功");
             id.Enabled = name.Enabled = sex.Enabled = psd.Enabled = email.Enabled = role.Enabled = false;
-        }
-
-        private void email_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

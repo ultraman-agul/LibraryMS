@@ -42,16 +42,6 @@ namespace LibraryMS.usermain
             name.Text = author.Text = publish.Text = type.Text = reason.Text = "";
         }
 
-        private void uiDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void recommand_Load(object sender, EventArgs e)
         {
             SqlHelper.setGDV("select top 5 id 编号,bookName 书籍名称,bookType 书籍类型,bookNumber 库存,author 作者,publishCompany 出版社,publishDate 出版日期 from book order by publishDate desc", uiDataGridView1);

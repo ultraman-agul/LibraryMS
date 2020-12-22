@@ -41,8 +41,7 @@ namespace LibraryMS
                 global.name=name.Text = data["name"].ToString();
             }
             string sql1 = "select count(*) from borrowmsg where userid= '" + global.username + "'";
-            global.borrowednum =Convert.ToInt32(SqlHelper.ExecuteScalar(sql1));
-                       
+            global.borrowednum =Convert.ToInt32(SqlHelper.ExecuteScalar(sql1));          
         
             borrowed.Text = "借阅情况："+global.borrowednum+"本";
             string sql2 = "select numbers from usertype,users where usertype.typename=users.role and users.id='" + global.username + "'";
@@ -69,14 +68,12 @@ namespace LibraryMS
                 sql5 = "update seat set state=0 where seatno ='" + arr[i].ToString() +"' and location = '" + arr1[i].ToString() +"'";
                 SqlHelper.ExecuteNonQuery(sql5);
             }
-            
         }
 
         private void uiImageButton3_Click(object sender, EventArgs e)
         {
             new borrowmsg().Show();
-                this.Hide();
-
+            this.Hide();
         }
 
         private void uiImageButton2_Click(object sender, EventArgs e)
@@ -104,11 +101,6 @@ namespace LibraryMS
         private void uiImageButton6_Click(object sender, EventArgs e)
         {
             new messageB().Show();
-        }
-
-        private void uiLabel8_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

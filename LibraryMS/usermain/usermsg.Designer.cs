@@ -140,7 +140,6 @@
             this.email.Style = Sunny.UI.UIStyle.Orange;
             this.email.TabIndex = 8;
             this.email.Watermark = "邮箱";
-            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             // 
             // uiButton6
             // 

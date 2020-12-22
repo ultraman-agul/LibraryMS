@@ -525,7 +525,6 @@
             this.tabPage18.Size = new System.Drawing.Size(798, 443);
             this.tabPage18.TabIndex = 1;
             this.tabPage18.Text = "添加用户";
-            this.tabPage18.Click += new System.EventHandler(this.tabPage18_Click);
             // 
             // uiSymbolButton2
             // 

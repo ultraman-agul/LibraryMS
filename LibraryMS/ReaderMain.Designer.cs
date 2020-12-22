@@ -348,7 +348,6 @@
             this.uiLabel8.TabIndex = 17;
             this.uiLabel8.Text = "读者留言";
             this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiLabel8.Click += new System.EventHandler(this.uiLabel8_Click);
             // 
             // uiImageButton6
             // 

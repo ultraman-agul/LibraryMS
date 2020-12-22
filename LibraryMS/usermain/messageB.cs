@@ -17,8 +17,10 @@ namespace LibraryMS.usermain
         {
             InitializeComponent();
         }
+
         public int index = 10;
         public int rowcount;
+
         private void messageB_Load(object sender, EventArgs e)
         {
             DataTable dt = SqlHelper.ExecuteDataTable("select * from messageB");
@@ -29,9 +31,9 @@ namespace LibraryMS.usermain
             uiDataGridView1.Columns[0].Width = 50;
             uiDataGridView1.Columns[1].Width = 120;
             uiDataGridView1.Columns[2].Width = 120;
-            
             uiDataGridView1.Rows[0].Height = 18;
         }
+
         //上一行
         private void uiButton1_Click(object sender, EventArgs e)
         {
@@ -65,17 +67,6 @@ namespace LibraryMS.usermain
                 UIMessageBox.Show("已经是最后一页");
                 index -= 10;
             }
-
-        }
-
-        private void uiLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void uiLabel2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void uiButton3_Click(object sender, EventArgs e)
@@ -96,7 +87,7 @@ namespace LibraryMS.usermain
                 {
                     UIMessageBox.Show("发布失败！");
                 }
-        }
+            }
         }
 
         // 我的留言

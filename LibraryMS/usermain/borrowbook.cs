@@ -16,7 +16,6 @@ namespace LibraryMS.usermain
             string sql = "select id 图书编号,bookName 图书名称,bookType 图书类型,bookNumber 馆藏数量,author 作者,publishCompany 出版社,publishDate 出版日期,pages 页数,wordsNumber 字数 from book";
             SqlHelper.setGDV(sql, mainGV);
             bookcid.Enabled = bookid.Enabled = bookcname.Enabled = borrow.Enabled = false;
-
         }
 
         private void search_Click(object sender, EventArgs e)
@@ -33,38 +32,29 @@ namespace LibraryMS.usermain
             SqlHelper.setGDV(sql, mainGV);
         }
 
-      
-
-
-
         private void bookcsae_SelectIndexChange(object sender, int index)
         {
             borrow.Enabled = true;
             bookcid.Text = bookcase[0, bookcase.CurrentCell.RowIndex].Value.ToString();
             bookid.Text= bookcase[1, bookcase.CurrentCell.RowIndex].Value.ToString();
             bookcname.Text= mainGV[1, mainGV.CurrentCell.RowIndex].Value.ToString();
-
         }
 
         private void borrow_Click(object sender, EventArgs e)
         {
             string sqln = "select count(*) from borrowmsg where userid='" + global.username + "'";
             int num = Convert.ToInt32(SqlHelper.ExecuteScalar(sqln));
-           // label1.Text = num.ToString();
             string d = global.nowdate;
             int y = global.days;
             string date = SqlHelper.ReTime(d,y);
             if (global.borrowingnum <= num) 
             {
                 UIMessageBox.Show("借阅数量已达上限");
-
             }
             else
             {
                 string sql2 = "select state from bookcase where caseid='" + bookcid.Text + "'";
                 string state = (string)SqlHelper.ExecuteScalar(sql2);
-
-
                 if (state=="可供借阅")
                 {
                     string sql = "insert into borrowmsg(caseid,bookid,bookname,userid,username,borrowtime,isbacktime) values('"+bookcid.Text+"','" + bookid.Text.Trim() + "','" + bookcname.Text.Trim() + "','" + global.username + "','" + global.name + "','" + global.nowdate + "','" + date + "')";
@@ -77,7 +67,6 @@ namespace LibraryMS.usermain
                         SqlHelper.ExecuteNonQuery(sql3);
                         string sql4 = "select caseid 索书号,id 图书编号,address 馆藏地址,state 借阅状态 from bookcase where caseid='" + bookcid.Text+"'";
                         SqlHelper.setGDV(sql4, bookcase);
-
                     }
                     else
                     {
@@ -86,7 +75,6 @@ namespace LibraryMS.usermain
                 }
                 else {
                    UIMessageBox.Show("该图书已被借阅");
-
                 } 
             }
         }

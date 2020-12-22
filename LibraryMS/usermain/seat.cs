@@ -51,9 +51,10 @@ namespace LibraryMS.usermain
 
                     UIMessageBox.Show("该座位已经被预约！");
                 }
-                else { 
-                string sql2="insert into reseat(seatid,location,userid,username,retime,isbacktime) values('"+id+"','"+location+"','" + global.username + "','" + global.name + "','"+DateTime.Now.ToString("yyyy-MM-dd")+"','"+SqlHelper.ReTime(DateTime.Now.ToString("yyyy-MM-dd"),1)+"')";
-                string sql = "update seat set state = 1 where seatno='" + id + "' and location='" + location + "'";
+                else 
+                { 
+                    string sql2="insert into reseat(seatid,location,userid,username,retime,isbacktime) values('"+id+"','"+location+"','" + global.username + "','" + global.name + "','"+DateTime.Now.ToString("yyyy-MM-dd")+"','"+SqlHelper.ReTime(DateTime.Now.ToString("yyyy-MM-dd"),1)+"')";
+                    string sql = "update seat set state = 1 where seatno='" + id + "' and location='" + location + "'";
                     if (SqlHelper.ExecuteNonQuery(sql) > 0)
                     {
                         if (SqlHelper.ExecuteNonQuery(sql2) > 0)
@@ -66,13 +67,13 @@ namespace LibraryMS.usermain
                                 loc.Text = sdr["location"].ToString();
                                 seatno.Text = sdr["seatid"].ToString();
                             }
-
                         }
                     }
                 }
                 SqlHelper.setGDV("select id 编号,seatno 座位号,location 位置,state 预约状态 from seat", uiDataGridView1);
             }
         }
+
         // 座位id
         protected int id;
         protected string location;
@@ -99,8 +100,6 @@ namespace LibraryMS.usermain
         private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat where location = '" + uiComboBox1.Text + "'";
-
-
             SqlHelper.setGDV(sql, uiDataGridView1);
         }
 
@@ -115,8 +114,6 @@ namespace LibraryMS.usermain
             {
                 string sql = "update seat set state = 0 where seatno='" + seatno.Text + "' and location='"+loc.Text+"'";
                 string sql1 = "delete from reseat where userid='" + global.username + "'";
-               
-                
                 if (SqlHelper.ExecuteNonQuery(sql) > 0)
                 {
                     if (SqlHelper.ExecuteNonQuery(sql1) > 0)

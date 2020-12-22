@@ -78,11 +78,9 @@ namespace LibraryMS
 
         private void uiTabControl1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
             int tabindex = uiTabControl1.SelectedIndex;
             switch (tabindex)
             {
-
                 case 0:
                     string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
                     SqlHelper.setGDV(sql1, uiDataGridView4);
@@ -124,74 +122,9 @@ namespace LibraryMS
                     SqlHelper.setGDV(sql4, uiDataGridView7);
                     break;
             }
-        } 
-
-        #endregion
-
-        #region 用户管理
-        // 添加用户
-        private void uiSymbolButton2_Click(object sender, EventArgs e)
-        {
-            string beChecked = uiRadioButton1.Checked ? uiRadioButton1.Text : uiRadioButton2.Text;
-            if (name.Text != null && pwd.Text != null && beChecked != null && email.Text != null && cbb.SelectedText.ToString() != null)
-            {
-                string newpwd = SqlHelper.MD5Hash(pwd.Text);
-                string sql = "insert into users (name, pwd, sex, email, role) values ('" + name.Text + "','" + newpwd + "','" + beChecked + "','" + email.Text + "','" + cbb.SelectedValue + "')";
-                SqlHelper.ExecuteNonQuery(sql);
-                UIMessageBox.Show("注册成功！");
-            }
-            else
-            {
-                UIMessageBox.Show("请填写完整信息！");
-            }
-            name.Text = "";
-            pwd.Text = "";
-            email.Text = "";
         }
 
-        // 查找
-        private void uiSymbolButton3_Click(object sender, EventArgs e)
-        {
-            string sql = "select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users where id = '" + stunumber.Text.Trim() + "'";
-            SqlHelper.setGDV(sql, uiDataGridView2);
-        }
-        
-        // 修改
-        private void uiSymbolButton4_Click(object sender, EventArgs e)
-        {
-            string beChecked = uiRadioButton4.Checked ? uiRadioButton4.Text : uiRadioButton3.Text;
-            string sql = "update users set name = '" + uiTextBox3.Text + "', sex = '" + beChecked + "',email = '" + uiTextBox1.Text + "', role = '" + role.Text + "' where id = '" + stunumber.Text + "'";
-            SqlHelper.ExecuteNonQuery(sql);
-            UIMessageBox.ShowSuccess("修改成功");
-            SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
-        }
-
-        // 选择当前行的数据
-
-
-        // 删除用户
-        private void uiSymbolButton5_Click(object sender, EventArgs e)
-        {
-            SqlHelper.ExecuteNonQuery("delete from users where id = '" + uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString() +"'");
-            UIMessageBox.ShowSuccess("删除成功！");
-            SqlHelper.setGDV("select id 编号, name 姓名, sex n别, email 邮箱, role 角色 from users", uiDataGridView2);
-        }
-        #endregion
-
-        #region 图书分类管理
-        // 分类 --添加
-        private void uiSymbolButton10_Click(object sender, EventArgs e)
-        {
-            if(typetext.Text.Trim()!= null)
-            {
-                string sql = "insert into bookType (typeName) values ('" + typetext.Text.Trim() + "')";
-                SqlHelper.ExecuteNonQuery(sql);
-                UIMessageBox.ShowSuccess("添加分类成功");
-                SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
-            }
-            
-        }
-
+        // 填充信息
         private void uiTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tabindex = uiTabControl1.SelectedIndex;
@@ -208,7 +141,7 @@ namespace LibraryMS
                     string sql3 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
                     SqlHelper.setGDV(sql3, tushucaozuoDV);
                     string sql4 = "select typeName as TYPE from bookType";
-                    SqlHelper.setCBB(sql4, "TYPE",booktype);
+                    SqlHelper.setCBB(sql4, "TYPE", booktype);
                     break;
                 case 3:
                     string sql2 = "select bookType 编号, typeName 分类名称 from bookType";
@@ -218,52 +151,14 @@ namespace LibraryMS
                     string sql3y = "select caseid 书架编号, id 图书编号,address 藏书地址,state 借阅状态 from bookcase";
                     SqlHelper.setGDV(sql3y, uiDataGridView7);
                     break;
-
             }
         }
-
-        // 修改图书分类
-        private void uiSymbolButton9_Click(object sender, EventArgs e)
-        {
-            string typeid = uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
-            string sql = "update bookType set typeName = '" + typetext.Text + "' where bookType = '" + typeid + "'";
-            SqlHelper.ExecuteNonQuery(sql);
-            UIMessageBox.ShowSuccess("修改成功");
-            SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
-        }
-
-
-        private void deletebtn_Click(object sender, EventArgs e)
-        {
-            SqlHelper.ExecuteNonQuery("delete from bookType where bookType = '" + uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString() + "'");
-            UIMessageBox.ShowSuccess("删除成功！");
-            SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
-        }
-        #endregion
-
-        #region 添加图书/图书操作
-        //添加
-        private void uiSymbolButton7_Click(object sender, EventArgs e)
-        {
-            string sql = "insert into book(bookName,author,bookNumber,publishCompany,publishDate,bookType,pages,wordsNumber) values('" + bnameTB.Text.Trim() +"','"+ authorTB.Text.Trim() +"','"+ bookNumTB.Text.Trim() +"','"+ publishCTB.Text.Trim() +"','" + uiDatePicker1.Text.Trim() + "','"+ booktypecbb.SelectedValue + "','" + pages.Text +"','"+ words.Text +"')";
-            if(SqlHelper.ExecuteNonQuery(sql) > 0)
-            {
-                UIMessageBox.ShowSuccess("添加成功！");
-            }
-            bnameTB.Text = "";
-            authorTB.Text = "";
-            bookNumTB.Text = "";
-            publishCTB.Text = "";
-            pages.Text = "";
-            words.Text = "";
-        }
-
 
         //选择填充数据到图书信息总览和用户总览
         private void uiTabControlMenu1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tabmenuindex = uiTabControlMenu1.SelectedIndex;
-            switch(tabmenuindex)
+            switch (tabmenuindex)
             {
                 case 0:
                     // 填充gridview1
@@ -309,6 +204,102 @@ namespace LibraryMS
             }
         }
 
+        #endregion
+
+        #region 用户管理
+        // 添加用户
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            string beChecked = uiRadioButton1.Checked ? uiRadioButton1.Text : uiRadioButton2.Text;
+            if (name.Text != null && pwd.Text != null && beChecked != null && email.Text != null && cbb.SelectedText.ToString() != null)
+            {
+                string newpwd = SqlHelper.MD5Hash(pwd.Text);
+                string sql = "insert into users (name, pwd, sex, email, role) values ('" + name.Text + "','" + newpwd + "','" + beChecked + "','" + email.Text + "','" + cbb.SelectedValue + "')";
+                SqlHelper.ExecuteNonQuery(sql);
+                UIMessageBox.Show("注册成功！");
+            }
+            else
+            {
+                UIMessageBox.Show("请填写完整信息！");
+            }
+            name.Text = "";
+            pwd.Text = "";
+            email.Text = "";
+        }
+
+        // 查找
+        private void uiSymbolButton3_Click(object sender, EventArgs e)
+        {
+            string sql = "select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users where id = '" + stunumber.Text.Trim() + "'";
+            SqlHelper.setGDV(sql, uiDataGridView2);
+        }
+        
+        // 修改
+        private void uiSymbolButton4_Click(object sender, EventArgs e)
+        {
+            string beChecked = uiRadioButton4.Checked ? uiRadioButton4.Text : uiRadioButton3.Text;
+            string sql = "update users set name = '" + uiTextBox3.Text + "', sex = '" + beChecked + "',email = '" + uiTextBox1.Text + "', role = '" + role.Text + "' where id = '" + stunumber.Text + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("修改成功");
+            SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
+        }
+
+        // 删除用户
+        private void uiSymbolButton5_Click(object sender, EventArgs e)
+        {
+            SqlHelper.ExecuteNonQuery("delete from users where id = '" + uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString() +"'");
+            UIMessageBox.ShowSuccess("删除成功！");
+            SqlHelper.setGDV("select id 编号, name 姓名, sex n别, email 邮箱, role 角色 from users", uiDataGridView2);
+        }
+        #endregion
+
+        #region 图书分类管理
+        // 分类 --添加
+        private void uiSymbolButton10_Click(object sender, EventArgs e)
+        {
+            if(typetext.Text.Trim()!= null)
+            {
+                string sql = "insert into bookType (typeName) values ('" + typetext.Text.Trim() + "')";
+                SqlHelper.ExecuteNonQuery(sql);
+                UIMessageBox.ShowSuccess("添加分类成功");
+                SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
+            }
+        }
+
+        // 修改图书分类
+        private void uiSymbolButton9_Click(object sender, EventArgs e)
+        {
+            string typeid = uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString();
+            string sql = "update bookType set typeName = '" + typetext.Text + "' where bookType = '" + typeid + "'";
+            SqlHelper.ExecuteNonQuery(sql);
+            UIMessageBox.ShowSuccess("修改成功");
+            SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            SqlHelper.ExecuteNonQuery("delete from bookType where bookType = '" + uiDataGridView5[0, uiDataGridView5.CurrentCell.RowIndex].Value.ToString() + "'");
+            UIMessageBox.ShowSuccess("删除成功！");
+            SqlHelper.setGDV("select bookType 编号, typeName 分类名称 from bookType", uiDataGridView5);
+        }
+        #endregion
+
+        #region 添加图书/图书操作
+        //添加
+        private void uiSymbolButton7_Click(object sender, EventArgs e)
+        {
+            string sql = "insert into book(bookName,author,bookNumber,publishCompany,publishDate,bookType,pages,wordsNumber) values('" + bnameTB.Text.Trim() +"','"+ authorTB.Text.Trim() +"','"+ bookNumTB.Text.Trim() +"','"+ publishCTB.Text.Trim() +"','" + uiDatePicker1.Text.Trim() + "','"+ booktypecbb.SelectedValue + "','" + pages.Text +"','"+ words.Text +"')";
+            if(SqlHelper.ExecuteNonQuery(sql) > 0)
+            {
+                UIMessageBox.ShowSuccess("添加成功！");
+            }
+            bnameTB.Text = "";
+            authorTB.Text = "";
+            bookNumTB.Text = "";
+            publishCTB.Text = "";
+            pages.Text = "";
+            words.Text = "";
+        }
 
         // 修改
         private void uiSymbolButton10_Click_1(object sender, EventArgs e)
@@ -343,6 +334,7 @@ namespace LibraryMS
                 UIMessageBox.ShowWarning("请输入书籍名称进行查找");
             }
         }
+
         //点击Gradview在Textbox查询数据
         private void tushucaozuoDV_SelectIndexChange(object sender, int index)
         {
@@ -356,8 +348,6 @@ namespace LibraryMS
             pagestb.Text = tushucaozuoDV[7, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             wordstb.Text = tushucaozuoDV[8, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
         }
-
-
         #endregion
 
         #region 读者类型操作
@@ -372,6 +362,7 @@ namespace LibraryMS
                 SqlHelper.setGDV("select id 编号, typename 分类名称,days 天数,numbers 可借数量 from usertype", uiDataGridView6);
             }
         }
+
         //用户类型修改
         private void uiSymbolButton12_Click(object sender, EventArgs e)
         {
@@ -380,20 +371,20 @@ namespace LibraryMS
             SqlHelper.ExecuteNonQuery(sql);
             UIMessageBox.ShowSuccess("修改成功");
             SqlHelper.setGDV("select id 编号, typename 分类名称,days 可借天数,numbers 数量 from usertype", uiDataGridView6);
-
         }
+
         //用户类型删除
         private void uiSymbolButton11_Click(object sender, EventArgs e)
         {
             SqlHelper.ExecuteNonQuery("delete from usertype where id = '" + uiDataGridView6[0, uiDataGridView6.CurrentCell.RowIndex].Value.ToString() + "'");
             UIMessageBox.ShowSuccess("删除成功！");
             SqlHelper.setGDV("select id 编号, typename 分类名称,days 可借天数,numbers 数量 from usertype", uiDataGridView6);
-
         }
         #endregion
 
         #region 选择当前行的数据进行填充
 
+        // 填充到用户管理
         private void uiDataGridView2_SelectIndexChange(object sender, int index)
         {
             stunumber.Text = uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString();
@@ -465,10 +456,7 @@ namespace LibraryMS
                 {
                     UIMessageBox.ShowError("添加失败");
                 }
-               
             }
-           
-
         }
 
         private void uiSymbolButton12_Click_1(object sender, EventArgs e)
@@ -485,7 +473,6 @@ namespace LibraryMS
                 UIMessageBox.ShowError("不存在该书籍");
             }
             SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
-
         }
 
         private void uiSymbolButton11_Click_1(object sender, EventArgs e)
@@ -497,7 +484,6 @@ namespace LibraryMS
             SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
         }
 
-
         #endregion
 
 
@@ -505,17 +491,12 @@ namespace LibraryMS
         private void bind()
         {
             string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat";
-
-           // sql += uiComboBox1.SelectedItem + "'";
-
             SqlHelper.setGDV(sql, seatmsg);
         }
 
         private void type()
         {
-          
             SqlHelper.setCBB("select distinct location from seat", "location", loc);
-
         }
 
         private void uiTabControl2_MouseClick(object sender, MouseEventArgs e)
@@ -532,13 +513,11 @@ namespace LibraryMS
             seatno.Text = seatmsg[1, seatmsg.CurrentCell.RowIndex].Value.ToString();
             reseat.Text = seatmsg[3, seatmsg.CurrentCell.RowIndex].Value.ToString();
             classroom.Text = seatmsg[2, seatmsg.CurrentCell.RowIndex].Value.ToString();
-
         }
 
         private void xiugai_Click(object sender, EventArgs e)
         {
             seatno.Enabled = reseat.Enabled = classroom.Enabled = true;
-
         }
 
         private void add_Click(object sender, EventArgs e)
@@ -547,7 +526,6 @@ namespace LibraryMS
             seatno.Text = reseat.Text = classroom.Text = null;
             global.state = "add";
             type();
-
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -586,7 +564,6 @@ namespace LibraryMS
                 {
                     UIMessageBox.ShowError("添加失败，已存在该座位");
                 }
-               
             }
             else
             {
@@ -607,9 +584,6 @@ namespace LibraryMS
         {
             //type();
             string sql = "select id 编号,seatno 座位号,location 位置,state 预约状态 from seat where location = '" + loc.Text+"'";
-
-           // label1.Text = loc.SelectedItem.ToString();
-
             SqlHelper.setGDV(sql, seatmsg);
         }
 
@@ -629,10 +603,10 @@ namespace LibraryMS
                     string sql1 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg where isbacktime<'"+DateTime.Now.ToString("yyyy-MM-dd")+"'";
                     SqlHelper.setGDV(sql1, borrowedmsg);
                     break;
-               
             }
         }
 
+        #region 添加/修改管理员
         // 添加管理员
         private void uiSymbolButton6_Click(object sender, EventArgs e)
         {
@@ -668,14 +642,9 @@ namespace LibraryMS
             UIMessageBox.ShowSuccess("修改成功");
             id.Enabled = name.Enabled = sex1.Enabled = psd1.Enabled = email.Enabled = role.Enabled = false;
         }
+        #endregion
 
-        private void tabPage18_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-     
-
+        #region 留言
         // 删除留言
         private void uiButton3_Click(object sender, EventArgs e)
         {
@@ -685,7 +654,6 @@ namespace LibraryMS
                 UIMessageBox.ShowSuccess("删除成功!");
             }
             SqlHelper.setGDV("select id 编号,userid 用户账号,date 留言日期,message 留言 from messageB", uiDataGridView3);
-
         }
 
         public int idd;
@@ -693,6 +661,7 @@ namespace LibraryMS
         {
             idd = Convert.ToInt32(uiDataGridView3[0, uiDataGridView3.CurrentCell.RowIndex].Value.ToString());
         }
+        #endregion
     }
 }
 

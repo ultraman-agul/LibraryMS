@@ -77,7 +77,6 @@
             this.tabPage1.Size = new System.Drawing.Size(747, 407);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "新书通报";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // uiDataGridView1
             // 
@@ -110,7 +109,6 @@
             this.uiDataGridView1.Size = new System.Drawing.Size(747, 407);
             this.uiDataGridView1.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView1.TabIndex = 0;
-            this.uiDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uiDataGridView1_CellContentClick);
             // 
             // tabPage2
             // 

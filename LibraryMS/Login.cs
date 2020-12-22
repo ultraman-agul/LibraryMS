@@ -33,19 +33,15 @@ namespace LibraryMS
             {
                 global.role = result.ToString();
                 global.username = uiTextBox1.Text;
+                UIMessageBox.ShowSuccess("登录成功");
+                this.Hide();
                 if (flag == "admin")
                 {
-                    UIMessageBox.ShowSuccess("登录成功");
-                    this.Hide();
                     new ManagerMain().Show();
                 }
                 else if (flag == "users")
                 {
-                    UIMessageBox.ShowSuccess("登录成功");
-                    this.Hide();
                     new ReaderMain().Show(); 
-                    this.Visible = false;
-
                 }          
             }
             else
