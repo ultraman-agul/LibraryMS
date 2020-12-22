@@ -12,10 +12,15 @@ winform C# 图书馆管理系统
 2. 普通用户
 
 + 系统功能结构
+
 ![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/System.png)
 
+
 + 管理员模块业务流程图
+
 ![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/Admin.png)
 
+
 + 用户模块业务流程图
+
 ![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/Users.png)
