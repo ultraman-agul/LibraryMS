@@ -7,9 +7,22 @@ winform C# 图书馆管理系统
 4. 运行平台：Windows 10。
 5. 运行环境：Microsoft .NET Framework SDK v4.7
 6. 控件库： [SunnyUI](https://github.com/yhuse/SunnyUI)
-## 两类用户
+## 两类用户的界面和功能
 1. 管理员
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/adminMain1.png)
+
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/adminMain2.png)
+
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/adminMain3.png)
+
 2. 普通用户
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/userMain1.png)
+
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/userMain2.png)
+
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/userMain3.png)
+
+![](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/userMain4.png)
 
 + 系统功能结构
 
