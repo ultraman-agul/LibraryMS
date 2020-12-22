@@ -10,3 +10,12 @@ winform C# 图书馆管理系统
 ## 两类用户
 1. 管理员
 2. 普通用户
+
++ 系统功能结构
+![image](https://github.com/ultraman-agul/LibraryMS/blob/master/LibraryMS/image/System.png)
+
++ 管理员模块业务流程图
+![]()
+
++ 用户模块业务流程图
+![]()
