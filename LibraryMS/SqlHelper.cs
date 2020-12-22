@@ -75,6 +75,7 @@ namespace LibraryMS
             }
         }
         //查询操作，返回查询结果中的第一行第一列的值
+        //查询操作，返回查询结果中的第一行第一列的值
         public static object ExecuteScalar(string sql, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(GetSqlConnectionString()))
@@ -87,7 +88,14 @@ namespace LibraryMS
                         comm.CommandText = sql;
                         if (parameters != null)
                             comm.Parameters.AddRange(parameters);
-                        return comm.ExecuteScalar().ToString();
+                        if (comm.ExecuteScalar() != null)
+                        {
+                            return comm.ExecuteScalar().ToString();
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -101,6 +109,7 @@ namespace LibraryMS
                 }
             }
         }
+
         //Adapter调整，查询操作，返回DataTable 
         public static DataTable ExecuteDataTable(string sql, params SqlParameter[] parameters)
         {

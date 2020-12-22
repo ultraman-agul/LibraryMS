@@ -90,6 +90,7 @@ namespace LibraryMS.usermain
                 if (SqlHelper.ExecuteNonQuery(sql) > 0)
                 {
                     UIMessageBox.Show("发布成功！");
+                    textBox1.Text = "";
                 }
                 else
                 {
@@ -101,7 +102,7 @@ namespace LibraryMS.usermain
         // 我的留言
         private void uiButton4_Click(object sender, EventArgs e)
         {
-            string sql = "select * from messageB where userid='"+global.username+"'";
+            string sql = "select id 编号,userid 用户账号,date 留言日期,message 留言 from messageB where userid='" + global.username+"'";
             SqlHelper.setGDV(sql, uiDataGridView1);
         }
     }

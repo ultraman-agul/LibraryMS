@@ -31,19 +31,17 @@ namespace LibraryMS
             object result = SqlHelper.ExecuteScalar(sql);
             if (result != null)
             {
-                global.username = uiTextBox1.Text;
                 global.role = result.ToString();
+                global.username = uiTextBox1.Text;
                 if (flag == "admin")
                 {
-                    UIMessageBox.Show("登录成功");
+                    UIMessageBox.ShowSuccess("登录成功");
                     this.Hide();
                     new ManagerMain().Show();
-                    
                 }
-
                 else if (flag == "users")
                 {
-                    UIMessageBox.Show("登录成功");
+                    UIMessageBox.ShowSuccess("登录成功");
                     this.Hide();
                     new ReaderMain().Show(); 
                     this.Visible = false;
@@ -52,7 +50,7 @@ namespace LibraryMS
             }
             else
             {
-                UIMessageBox.Show("用户名或密码错误");
+                UIMessageBox.ShowError("用户名或密码错误");
             }
         }
 

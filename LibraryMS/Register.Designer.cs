@@ -30,6 +30,8 @@
         {
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiRadioButtonGroup1 = new Sunny.UI.UIRadioButtonGroup();
+            this.uiRadioButton2 = new Sunny.UI.UIRadioButton();
+            this.uiRadioButton1 = new Sunny.UI.UIRadioButton();
             this.cbb = new Sunny.UI.UIComboBox();
             this.uiSymbolLabel5 = new Sunny.UI.UISymbolLabel();
             this.uiPanel6 = new Sunny.UI.UIPanel();
@@ -48,8 +50,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
-            this.uiRadioButton1 = new Sunny.UI.UIRadioButton();
-            this.uiRadioButton2 = new Sunny.UI.UIRadioButton();
             this.uiPanel1.SuspendLayout();
             this.uiRadioButtonGroup1.SuspendLayout();
             this.SuspendLayout();
@@ -71,16 +71,14 @@
             this.uiPanel1.Controls.Add(this.uiSymbolLabel1);
             this.uiPanel1.Controls.Add(this.name);
             this.uiPanel1.Controls.Add(this.uiPanel2);
-            this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(63, 57);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiPanel1.Size = new System.Drawing.Size(269, 285);
-            this.uiPanel1.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.Click += new System.EventHandler(this.uiPanel1_Click);
@@ -89,19 +87,43 @@
             // 
             this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton2);
             this.uiRadioButtonGroup1.Controls.Add(this.uiRadioButton1);
-            this.uiRadioButtonGroup1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiRadioButtonGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiRadioButtonGroup1.Location = new System.Drawing.Point(78, 116);
             this.uiRadioButtonGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiRadioButtonGroup1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRadioButtonGroup1.Name = "uiRadioButtonGroup1";
             this.uiRadioButtonGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiRadioButtonGroup1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiRadioButtonGroup1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiRadioButtonGroup1.Size = new System.Drawing.Size(136, 36);
-            this.uiRadioButtonGroup1.Style = Sunny.UI.UIStyle.Orange;
+            this.uiRadioButtonGroup1.Style = Sunny.UI.UIStyle.Custom;
             this.uiRadioButtonGroup1.TabIndex = 16;
             this.uiRadioButtonGroup1.Text = null;
+            // 
+            // uiRadioButton2
+            // 
+            this.uiRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiRadioButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiRadioButton2.Location = new System.Drawing.Point(70, 7);
+            this.uiRadioButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiRadioButton2.Name = "uiRadioButton2";
+            this.uiRadioButton2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.uiRadioButton2.Size = new System.Drawing.Size(66, 29);
+            this.uiRadioButton2.Style = Sunny.UI.UIStyle.Custom;
+            this.uiRadioButton2.TabIndex = 1;
+            this.uiRadioButton2.Text = "女";
+            // 
+            // uiRadioButton1
+            // 
+            this.uiRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiRadioButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiRadioButton1.Location = new System.Drawing.Point(0, 7);
+            this.uiRadioButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiRadioButton1.Name = "uiRadioButton1";
+            this.uiRadioButton1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.uiRadioButton1.Size = new System.Drawing.Size(66, 29);
+            this.uiRadioButton1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiRadioButton1.TabIndex = 0;
+            this.uiRadioButton1.Text = "男";
             // 
             // cbb
             // 
@@ -109,15 +131,14 @@
             this.cbb.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbb.Items.AddRange(new object[] {
             "学生",
-            "教师"});
+            "老师"});
             this.cbb.Location = new System.Drawing.Point(78, 212);
             this.cbb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbb.MinimumSize = new System.Drawing.Size(63, 0);
             this.cbb.Name = "cbb";
             this.cbb.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
-            this.cbb.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.cbb.Size = new System.Drawing.Size(115, 33);
-            this.cbb.Style = Sunny.UI.UIStyle.Orange;
+            this.cbb.Style = Sunny.UI.UIStyle.Custom;
             this.cbb.TabIndex = 15;
             this.cbb.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.cbb.Watermark = "身份选择";
@@ -130,7 +151,7 @@
             this.uiSymbolLabel5.Name = "uiSymbolLabel5";
             this.uiSymbolLabel5.Padding = new System.Windows.Forms.Padding(49, 0, 0, 0);
             this.uiSymbolLabel5.Size = new System.Drawing.Size(41, 39);
-            this.uiSymbolLabel5.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolLabel5.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolLabel5.Symbol = 62139;
             this.uiSymbolLabel5.SymbolSize = 45;
             this.uiSymbolLabel5.TabIndex = 14;
@@ -138,16 +159,15 @@
             // uiPanel6
             // 
             this.uiPanel6.BackColor = System.Drawing.Color.Black;
-            this.uiPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel6.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel6.Location = new System.Drawing.Point(47, 250);
             this.uiPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel6.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel6.Name = "uiPanel6";
-            this.uiPanel6.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel6.Size = new System.Drawing.Size(167, 2);
-            this.uiPanel6.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel6.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel6.TabIndex = 12;
+            this.uiPanel6.Text = null;
             // 
             // uiSymbolLabel4
             // 
@@ -157,7 +177,7 @@
             this.uiSymbolLabel4.Name = "uiSymbolLabel4";
             this.uiSymbolLabel4.Padding = new System.Windows.Forms.Padding(49, 0, 0, 0);
             this.uiSymbolLabel4.Size = new System.Drawing.Size(41, 39);
-            this.uiSymbolLabel4.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolLabel4.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolLabel4.Symbol = 61849;
             this.uiSymbolLabel4.SymbolSize = 45;
             this.uiSymbolLabel4.TabIndex = 11;
@@ -190,16 +210,15 @@
             // uiPanel5
             // 
             this.uiPanel5.BackColor = System.Drawing.Color.Black;
-            this.uiPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel5.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel5.Location = new System.Drawing.Point(47, 200);
             this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel5.Name = "uiPanel5";
-            this.uiPanel5.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel5.Size = new System.Drawing.Size(167, 2);
-            this.uiPanel5.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel5.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel5.TabIndex = 9;
+            this.uiPanel5.Text = null;
             // 
             // uiSymbolLabel3
             // 
@@ -209,7 +228,7 @@
             this.uiSymbolLabel3.Name = "uiSymbolLabel3";
             this.uiSymbolLabel3.Padding = new System.Windows.Forms.Padding(49, 0, 0, 0);
             this.uiSymbolLabel3.Size = new System.Drawing.Size(41, 39);
-            this.uiSymbolLabel3.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolLabel3.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolLabel3.Symbol = 61992;
             this.uiSymbolLabel3.SymbolSize = 45;
             this.uiSymbolLabel3.TabIndex = 8;
@@ -217,16 +236,15 @@
             // uiPanel4
             // 
             this.uiPanel4.BackColor = System.Drawing.Color.Black;
-            this.uiPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel4.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel4.Location = new System.Drawing.Point(47, 156);
             this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel4.Name = "uiPanel4";
-            this.uiPanel4.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel4.Size = new System.Drawing.Size(167, 2);
-            this.uiPanel4.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel4.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel4.TabIndex = 6;
+            this.uiPanel4.Text = null;
             // 
             // uiSymbolLabel2
             // 
@@ -236,7 +254,7 @@
             this.uiSymbolLabel2.Name = "uiSymbolLabel2";
             this.uiSymbolLabel2.Padding = new System.Windows.Forms.Padding(49, 0, 0, 0);
             this.uiSymbolLabel2.Size = new System.Drawing.Size(41, 39);
-            this.uiSymbolLabel2.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolLabel2.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolLabel2.Symbol = 61475;
             this.uiSymbolLabel2.SymbolSize = 45;
             this.uiSymbolLabel2.TabIndex = 5;
@@ -269,16 +287,15 @@
             // uiPanel3
             // 
             this.uiPanel3.BackColor = System.Drawing.Color.Black;
-            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel3.Location = new System.Drawing.Point(47, 112);
             this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel3.Name = "uiPanel3";
-            this.uiPanel3.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel3.Size = new System.Drawing.Size(167, 2);
-            this.uiPanel3.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel3.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel3.TabIndex = 3;
+            this.uiPanel3.Text = null;
             // 
             // uiSymbolLabel1
             // 
@@ -288,7 +305,7 @@
             this.uiSymbolLabel1.Name = "uiSymbolLabel1";
             this.uiSymbolLabel1.Padding = new System.Windows.Forms.Padding(49, 0, 0, 0);
             this.uiSymbolLabel1.Size = new System.Drawing.Size(41, 39);
-            this.uiSymbolLabel1.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolLabel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolLabel1.Symbol = 62142;
             this.uiSymbolLabel1.SymbolSize = 45;
             this.uiSymbolLabel1.TabIndex = 2;
@@ -321,16 +338,15 @@
             // uiPanel2
             // 
             this.uiPanel2.BackColor = System.Drawing.Color.Black;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.uiPanel2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel2.Location = new System.Drawing.Point(47, 68);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.uiPanel2.Size = new System.Drawing.Size(167, 2);
-            this.uiPanel2.Style = Sunny.UI.UIStyle.Orange;
+            this.uiPanel2.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel2.TabIndex = 0;
+            this.uiPanel2.Text = null;
             // 
             // label9
             // 
@@ -353,20 +369,12 @@
             // uiSymbolButton1
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiSymbolButton1.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiSymbolButton1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiSymbolButton1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton1.Location = new System.Drawing.Point(218, 350);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
-            this.uiSymbolButton1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiSymbolButton1.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiSymbolButton1.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiSymbolButton1.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
-            this.uiSymbolButton1.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolButton1.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolButton1.Symbol = 61579;
             this.uiSymbolButton1.TabIndex = 31;
             this.uiSymbolButton1.Text = "返回";
@@ -375,51 +383,15 @@
             // uiSymbolButton2
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiSymbolButton2.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton2.Location = new System.Drawing.Point(63, 350);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
-            this.uiSymbolButton2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiSymbolButton2.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
-            this.uiSymbolButton2.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
-            this.uiSymbolButton2.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
             this.uiSymbolButton2.Size = new System.Drawing.Size(100, 35);
-            this.uiSymbolButton2.Style = Sunny.UI.UIStyle.Orange;
+            this.uiSymbolButton2.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolButton2.TabIndex = 32;
             this.uiSymbolButton2.Text = "注册";
             this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
-            // 
-            // uiRadioButton1
-            // 
-            this.uiRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiRadioButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton1.Location = new System.Drawing.Point(0, 7);
-            this.uiRadioButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiRadioButton1.Name = "uiRadioButton1";
-            this.uiRadioButton1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.uiRadioButton1.RadioButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiRadioButton1.Size = new System.Drawing.Size(66, 29);
-            this.uiRadioButton1.Style = Sunny.UI.UIStyle.Orange;
-            this.uiRadioButton1.TabIndex = 0;
-            this.uiRadioButton1.Text = "男";
-            // 
-            // uiRadioButton2
-            // 
-            this.uiRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiRadioButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton2.Location = new System.Drawing.Point(70, 7);
-            this.uiRadioButton2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiRadioButton2.Name = "uiRadioButton2";
-            this.uiRadioButton2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.uiRadioButton2.RadioButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.uiRadioButton2.Size = new System.Drawing.Size(66, 29);
-            this.uiRadioButton2.Style = Sunny.UI.UIStyle.Orange;
-            this.uiRadioButton2.TabIndex = 1;
-            this.uiRadioButton2.Text = "女";
             // 
             // Register
             // 

@@ -26,9 +26,6 @@ namespace LibraryMS
             new Login().Show();
         }
 
-        
-
-
         private void ReaderMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
@@ -55,6 +52,7 @@ namespace LibraryMS
             global.canborrownum = global.borrowingnum - global.borrowednum;//如今可借
             borrowing.Text = "可借数量：" + global.canborrownum;
 
+            //判断是该归还座位
             string now = DateTime.Now.ToString("yyyy-MM-dd");
 
             string sqlid = "select seatid from reseat where isbacktime < " + "'"+now+"'";

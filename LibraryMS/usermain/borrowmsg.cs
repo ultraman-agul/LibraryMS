@@ -45,9 +45,6 @@ namespace LibraryMS.usermain
                 SqlHelper.ExecuteNonQuery(sql3);
                 string sql1 = "select caseid 索书号,bookid 图书编号,bookname 图书名称,userid 用户账号,username 用户名,borrowtime 借书时间,isbacktime 归还时间 from borrowmsg where userid='" + global.username + "'";
                 SqlHelper.setGDV(sql1, borrowmsgGV);
-
-
-
             }
             else
             {

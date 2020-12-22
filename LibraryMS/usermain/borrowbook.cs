@@ -22,7 +22,7 @@ namespace LibraryMS.usermain
         private void search_Click(object sender, EventArgs e)
         {
             string sql = "";
-            if (bookname.Text.Trim()!= null)
+            if (bookname.Text.Trim()!= "")
             {
                  sql= "select id 图书编号,bookName 图书名称,bookType 图书类型,bookNumber 馆藏数量,author 作者,publishCompany 出版社,publishDate 出版日期,pages 页数,wordsNumber 字数 from book where bookName like '%" + bookname.Text.Trim()+"%'";
             }
@@ -75,7 +75,7 @@ namespace LibraryMS.usermain
                         string s = date + "应还";
                         string sql3="update bookcase set state='"+s+"' where caseid='"+bookcid.Text+"'";
                         SqlHelper.ExecuteNonQuery(sql3);
-                        string sql4 = "select * from bookcase where caseid='"+bookcid.Text+"'";
+                        string sql4 = "select caseid 索书号,id 图书编号,address 馆藏地址,state 借阅状态 from bookcase where caseid='" + bookcid.Text+"'";
                         SqlHelper.setGDV(sql4, bookcase);
 
                     }

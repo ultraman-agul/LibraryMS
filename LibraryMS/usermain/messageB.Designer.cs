@@ -63,7 +63,7 @@
             this.uiButton1.Size = new System.Drawing.Size(100, 35);
             this.uiButton1.Style = Sunny.UI.UIStyle.Orange;
             this.uiButton1.TabIndex = 3;
-            this.uiButton1.Text = "上一条";
+            this.uiButton1.Text = "上一页";
             this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // uiButton2
@@ -84,7 +84,7 @@
             this.uiButton2.Size = new System.Drawing.Size(100, 35);
             this.uiButton2.Style = Sunny.UI.UIStyle.Orange;
             this.uiButton2.TabIndex = 4;
-            this.uiButton2.Text = "下一条";
+            this.uiButton2.Text = "下一页";
             this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
             // 
             // uiButton3
@@ -220,7 +220,7 @@
             // 
             // messageB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 539);
             this.Controls.Add(this.uiPanel1);

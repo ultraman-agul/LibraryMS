@@ -70,7 +70,7 @@
             this.uiTextBox1.Name = "uiTextBox1";
             this.uiTextBox1.Padding = new System.Windows.Forms.Padding(5);
             this.uiTextBox1.Radius = 10;
-            this.uiTextBox1.Size = new System.Drawing.Size(158, 33);
+            this.uiTextBox1.Size = new System.Drawing.Size(158, 39);
             this.uiTextBox1.StyleCustomMode = true;
             this.uiTextBox1.TabIndex = 1;
             this.uiTextBox1.Text = "2018324112";
@@ -115,10 +115,12 @@
             this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTextBox2.Name = "uiTextBox2";
             this.uiTextBox2.Padding = new System.Windows.Forms.Padding(5);
+            this.uiTextBox2.PasswordChar = '*';
             this.uiTextBox2.Radius = 10;
-            this.uiTextBox2.Size = new System.Drawing.Size(158, 33);
+            this.uiTextBox2.Size = new System.Drawing.Size(158, 39);
             this.uiTextBox2.StyleCustomMode = true;
             this.uiTextBox2.TabIndex = 6;
+            this.uiTextBox2.Tag = "";
             this.uiTextBox2.Text = "0";
             this.uiTextBox2.Watermark = "密码";
             // 
@@ -226,7 +228,7 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryMS.Properties.Resources.login2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

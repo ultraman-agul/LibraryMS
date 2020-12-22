@@ -120,12 +120,10 @@ namespace LibraryMS.usermain
                 if (SqlHelper.ExecuteNonQuery(sql) > 0)
                 {
                     if (SqlHelper.ExecuteNonQuery(sql1) > 0)
-                    {
-
-                    
+                    {    
                         UIMessageBox.ShowSuccess("取消成功！");
                         seatno.Text =" ";
-                       loc.Text = " ";
+                        loc.Text = " ";
                     }
                 }
                 SqlHelper.setGDV("select id 编号,seatno 座位号,location 位置,state 预约状态 from seat", uiDataGridView1);

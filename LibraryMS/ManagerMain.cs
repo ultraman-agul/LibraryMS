@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryMS.usermain;
 using Sunny.UI;
 
 namespace LibraryMS
@@ -44,8 +45,6 @@ namespace LibraryMS
             SqlHelper.setCBB("select TypeName as good from bookType", "good", booktype);
             SqlHelper.setCBB("select typeName as good from usertype", "good", role);
             SqlHelper.setCBB("select distinct location from seat", "location", loc);
-            
-
         }
         #endregion
 
@@ -76,6 +75,7 @@ namespace LibraryMS
 
             }
         }
+
         private void uiTabControl1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
@@ -99,16 +99,14 @@ namespace LibraryMS
                     string sql4 = "select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase";
                     SqlHelper.setGDV(sql4, uiDataGridView7);
                     break;
-
-
             }
         }
+
         private void uiTabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tabindex = uiTabControl1.SelectedIndex;
             switch (tabindex)
             {
-
                 case 0:
                     string sql1 = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book";
                     SqlHelper.setGDV(sql1, uiDataGridView4);
@@ -125,8 +123,6 @@ namespace LibraryMS
                     string sql4 = "select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase";
                     SqlHelper.setGDV(sql4, uiDataGridView7);
                     break;
-
-
             }
         } 
 
@@ -178,7 +174,7 @@ namespace LibraryMS
         {
             SqlHelper.ExecuteNonQuery("delete from users where id = '" + uiDataGridView2[0, uiDataGridView2.CurrentCell.RowIndex].Value.ToString() +"'");
             UIMessageBox.ShowSuccess("删除成功！");
-            SqlHelper.setGDV("select id 编号, name 姓名, sex 性别, email 邮箱, role 角色 from users", uiDataGridView2);
+            SqlHelper.setGDV("select id 编号, name 姓名, sex n别, email 邮箱, role 角色 from users", uiDataGridView2);
         }
         #endregion
 
@@ -262,8 +258,6 @@ namespace LibraryMS
             words.Text = "";
         }
 
-        
-
 
         //选择填充数据到图书信息总览和用户总览
         private void uiTabControlMenu1_SelectedIndexChanged(object sender, EventArgs e)
@@ -307,6 +301,11 @@ namespace LibraryMS
                         id.Enabled = name.Enabled = sex1.Enabled = psd1.Enabled = uiTextBox8.Enabled = false;
                     }
                     break;
+                case 6:
+
+                    string sql10 = "select id 编号,userid 用户账号,date 留言日期,message 留言 from messageB";
+                    SqlHelper.setGDV(sql10, uiDataGridView3);
+                    break;
             }
         }
 
@@ -316,7 +315,7 @@ namespace LibraryMS
         {
             string id = tushucaozuoDV[0, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString();
             string sql = "update book set bookName = '" + nametb.Text + "',author = '" + authertb.Text +
-                "',bookNumber = '" + numbertb.Text + "',publishCompany = '" + publishcompany.Text + "',publishDate = '" + uiDatePicker2.Text +"',bookType='"+booktype.SelectedText+"',pages = '"+pagestb.Text+"',wordsNumber = '"+ wordstb.Text +"' where id = '" + id + "'";
+                "',bookNumber = '" + numbertb.Text + "',publishCompany = '" + publishcompany.Text + "',publishDate = '" + uiDatePicker2.Text.Substring(0,10) +"',bookType='"+booktype.SelectedText+"',pages = '"+pagestb.Text+"',wordsNumber = '"+ wordstb.Text +"' where id = '" + id + "'";
             SqlHelper.ExecuteNonQuery(sql);
             UIMessageBox.ShowSuccess("修改成功");
             SqlHelper.setGDV("select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book", tushucaozuoDV);
@@ -325,6 +324,7 @@ namespace LibraryMS
         // 删除图书
         private void uiSymbolButton9_Click_1(object sender, EventArgs e)
         {
+            SqlHelper.ExecuteNonQuery("delete from bookcase where id = '"+ tushucaozuoDV[0, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString() + "'");
             SqlHelper.ExecuteNonQuery("delete from book where id = '" + tushucaozuoDV[0, tushucaozuoDV.CurrentCell.RowIndex].Value.ToString() + "'");
             UIMessageBox.ShowSuccess("删除成功！");
             SqlHelper.setGDV("select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book", tushucaozuoDV);
@@ -333,9 +333,9 @@ namespace LibraryMS
         // 根据书名查找图书信息
         private void searchbtn_Click(object sender, EventArgs e)
         {
-            if(nametb.Text.Trim() != null)
+            if(nametb.Text.Trim() != "")
             {
-                string sql = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book where bookName = '" + nametb.Text.Trim() + "'";
+                string sql = "select id 编号, bookName 书名, author 作者,bookNumber 数量, publishCompany 出版社, publishDate 出版时间, bookType 类型, pages 页数, wordsNumber 字数 from book where bookName like '%" + nametb.Text.Trim() + "%'";
                 SqlHelper.setGDV(sql, tushucaozuoDV);
             }
             else
@@ -438,20 +438,36 @@ namespace LibraryMS
         #region 书架管理
         private void uiSymbolButton8_Click_1(object sender, EventArgs e)
         {
-            string sql = "insert into bookcase values('" +caseid.Text.Trim() +"','" + bookid.Text.Trim()+"','" +address.Text.Trim() +"','" + state.Text.Trim()+"')";
-            if (SqlHelper.ExecuteNonQuery(sql) > 0)
+            if(bookid.Text.Trim() == "" || address.Text.Trim() == "" || state.Text.Trim() == "")
             {
-                UIMessageBox.ShowSuccess("添加成功！");
-                caseid.Text = "";
-                bookid.Text = "";
-                address.Text = "";
-                state.Text = "";
-                SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
+                UIMessageBox.ShowError("请填写完整信息");
             }
             else
             {
-                UIMessageTip.ShowError("添加失败");
+                try
+                {
+                    string sql = "insert into bookcase values('" + bookid.Text.Trim()+"','" +address.Text.Trim() +"','" + state.Text.Trim()+"')";
+                    if (SqlHelper.ExecuteNonQuery(sql) > 0)
+                    {
+                        UIMessageBox.ShowSuccess("添加成功！");
+                        caseid.Text = "";
+                        bookid.Text = "";
+                        address.Text = "";
+                        state.Text = "";
+                        SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
+                    }
+                    else
+                    {
+                        UIMessageTip.ShowError("添加失败");
+                    }
+                }
+                catch
+                {
+                    UIMessageBox.ShowError("添加失败");
+                }
+               
             }
+           
 
         }
 
@@ -459,8 +475,15 @@ namespace LibraryMS
         {
             string id = uiDataGridView7[0, uiDataGridView7.CurrentCell.RowIndex].Value.ToString();
             string sql = "update bookcase set id = '" + bookid.Text + "',address = '" + address.Text.Trim() +"',state='"+state.Text.Trim()+"' where caseid = '" + id + "'";
-            SqlHelper.ExecuteNonQuery(sql);
-            UIMessageBox.ShowSuccess("修改成功");
+            try
+            {
+                SqlHelper.ExecuteNonQuery(sql);
+                UIMessageBox.ShowSuccess("修改成功");
+            }
+            catch
+            {
+                UIMessageBox.ShowError("不存在该书籍");
+            }
             SqlHelper.setGDV("select caseid 编号, id 书架编号, address 藏书地址,state 借阅状态 from bookcase", uiDataGridView7);
 
         }
@@ -546,16 +569,24 @@ namespace LibraryMS
         {
             if (global.state == "add")
             {
-                string sql = "insert into seat(seatno,location,state) values('"+ seatno.Text + "','"+classroom.Text+"','"+reseat.Text+"')";
-                int s = SqlHelper.ExecuteNonQuery(sql);
-                if (s > 0)
+                if(SqlHelper.ExecuteScalar("select * from seat where seatno='"+seatno.Text.Trim()+"' and location='"+classroom.Text.Trim()+"'")==null)
                 {
-                    UIMessageBox.Show("添加成功！"); bind(); type();
+                    string sql = "insert into seat(seatno,location,state) values('"+ seatno.Text + "','"+classroom.Text+"','"+reseat.Text+"')";
+                    int s = SqlHelper.ExecuteNonQuery(sql);
+                    if (s > 0)
+                    {
+                        UIMessageBox.Show("添加成功！"); bind(); type();
+                    }
+                    else
+                    {
+                        UIMessageBox.Show("添加失败！"); bind();
+                    }
                 }
                 else
                 {
-                    UIMessageBox.Show("添加失败！"); bind();
+                    UIMessageBox.ShowError("添加失败，已存在该座位");
                 }
+               
             }
             else
             {
@@ -584,6 +615,7 @@ namespace LibraryMS
 
         #endregion
 
+        // 借阅信息
         private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int s = uiComboBox1.SelectedIndex;
@@ -593,8 +625,8 @@ namespace LibraryMS
                     string sql3 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg";
                     SqlHelper.setGDV(sql3, borrowedmsg);
                     break;
-                case 1:
-                    string sql1 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg where isbacktime<'"+DateTime.Now+"'";
+                case 1: //逾期
+                    string sql1 = "select caseid 索书号,bookid 图书编号,bookname 书名,userid 读者账号,username 读者姓名,borrowtime 借阅时间,isbacktime 还书时间 from borrowmsg where isbacktime<'"+DateTime.Now.ToString("yyyy-MM-dd")+"'";
                     SqlHelper.setGDV(sql1, borrowedmsg);
                     break;
                
@@ -639,7 +671,27 @@ namespace LibraryMS
 
         private void tabPage18_Click(object sender, EventArgs e)
         {
+            
+        }
 
+     
+
+        // 删除留言
+        private void uiButton3_Click(object sender, EventArgs e)
+        {
+            string sql = "delete from messageB where id = " + idd;
+            if (SqlHelper.ExecuteNonQuery(sql) > 0)
+            {
+                UIMessageBox.ShowSuccess("删除成功!");
+            }
+            SqlHelper.setGDV("select id 编号,userid 用户账号,date 留言日期,message 留言 from messageB", uiDataGridView3);
+
+        }
+
+        public int idd;
+        private void uiDataGridView3_SelectIndexChange(object sender, int index)
+        {
+            idd = Convert.ToInt32(uiDataGridView3[0, uiDataGridView3.CurrentCell.RowIndex].Value.ToString());
         }
     }
 }

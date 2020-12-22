@@ -28,12 +28,13 @@ namespace LibraryMS
         private void uiSymbolButton2_Click(object sender, EventArgs e)
         {
             string beChecked = uiRadioButton1.Checked ? uiRadioButton1.Text : uiRadioButton2.Text;
-            if (name.Text != null && pwd.Text != null && beChecked != null && email.Text != null && cbb.SelectedText.ToString() != null)
+            if (name.Text != null && pwd.Text != null && beChecked != null && email.Text != null && cbb.Text.ToString() != null)
             {
                 string newpwd = SqlHelper.MD5Hash(pwd.Text);
-                string sql = "insert into users (name, pwd, sex, email, role) values ('" + name.Text + "','" + newpwd + "','" + beChecked + "','" + email.Text + "','" + cbb.SelectedText.ToString() + "')";
+                string sql = "insert into users (name, pwd, sex, email, role) values ('" + name.Text + "','" + newpwd + "','" + beChecked + "','" + email.Text + "','" + cbb.Text.ToString() + "')";
                 SqlHelper.ExecuteNonQuery(sql);
-                UIMessageBox.Show("注册成功！");
+                string loginNumber = SqlHelper.ExecuteScalar("select * from users where name='" + name.Text.Trim()+"'").ToString();
+                UIMessageBox.Show("注册成功！您的登录账号是：" + loginNumber);
                 this.Visible = false;
                 new Login().Show();
             }

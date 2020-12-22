@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.borrowmsgGV = new Sunny.UI.UIDataGridView();
             this.bookid = new Sunny.UI.UITextBox();
             this.bookname = new Sunny.UI.UITextBox();
@@ -42,27 +42,28 @@
             // 
             // borrowmsgGV
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
-            this.borrowmsgGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
+            this.borrowmsgGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.borrowmsgGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.borrowmsgGV.BackgroundColor = System.Drawing.Color.White;
             this.borrowmsgGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.borrowmsgGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.borrowmsgGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.borrowmsgGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(207)))), ((int)(((byte)(151)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.borrowmsgGV.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(207)))), ((int)(((byte)(151)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.borrowmsgGV.DefaultCellStyle = dataGridViewCellStyle7;
             this.borrowmsgGV.Dock = System.Windows.Forms.DockStyle.Top;
             this.borrowmsgGV.EnableHeadersVisualStyles = false;
             this.borrowmsgGV.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -70,8 +71,9 @@
             this.borrowmsgGV.Location = new System.Drawing.Point(0, 35);
             this.borrowmsgGV.Name = "borrowmsgGV";
             this.borrowmsgGV.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.borrowmsgGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.borrowmsgGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.borrowmsgGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.borrowmsgGV.RowTemplate.Height = 29;
             this.borrowmsgGV.SelectedIndex = -1;
             this.borrowmsgGV.ShowGridLine = true;
@@ -84,6 +86,7 @@
             // bookid
             // 
             this.bookid.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bookid.Enabled = false;
             this.bookid.FillColor = System.Drawing.Color.White;
             this.bookid.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.bookid.Location = new System.Drawing.Point(62, 322);
@@ -94,13 +97,14 @@
             this.bookid.Name = "bookid";
             this.bookid.Padding = new System.Windows.Forms.Padding(5);
             this.bookid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookid.Size = new System.Drawing.Size(150, 29);
+            this.bookid.Size = new System.Drawing.Size(150, 34);
             this.bookid.Style = Sunny.UI.UIStyle.Orange;
             this.bookid.TabIndex = 1;
             // 
             // bookname
             // 
             this.bookname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bookname.Enabled = false;
             this.bookname.FillColor = System.Drawing.Color.White;
             this.bookname.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.bookname.Location = new System.Drawing.Point(62, 366);
@@ -111,7 +115,7 @@
             this.bookname.Name = "bookname";
             this.bookname.Padding = new System.Windows.Forms.Padding(5);
             this.bookname.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookname.Size = new System.Drawing.Size(150, 29);
+            this.bookname.Size = new System.Drawing.Size(150, 34);
             this.bookname.Style = Sunny.UI.UIStyle.Orange;
             this.bookname.TabIndex = 2;
             // 
@@ -139,6 +143,7 @@
             // caseid
             // 
             this.caseid.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.caseid.Enabled = false;
             this.caseid.FillColor = System.Drawing.Color.White;
             this.caseid.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.caseid.Location = new System.Drawing.Point(62, 283);
@@ -149,13 +154,13 @@
             this.caseid.Name = "caseid";
             this.caseid.Padding = new System.Windows.Forms.Padding(5);
             this.caseid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.caseid.Size = new System.Drawing.Size(150, 29);
+            this.caseid.Size = new System.Drawing.Size(150, 34);
             this.caseid.Style = Sunny.UI.UIStyle.Orange;
             this.caseid.TabIndex = 4;
             // 
             // borrowmsg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 441);
             this.Controls.Add(this.caseid);

@@ -81,6 +81,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(233)))));
             this.mainGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.mainGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.mainGV.BackgroundColor = System.Drawing.Color.White;
             this.mainGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -107,6 +108,7 @@
             this.mainGV.Location = new System.Drawing.Point(0, 0);
             this.mainGV.Name = "mainGV";
             this.mainGV.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.mainGV.RowHeadersWidth = 51;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.mainGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.mainGV.RowTemplate.Height = 29;
@@ -149,7 +151,7 @@
             this.bookname.Name = "bookname";
             this.bookname.Padding = new System.Windows.Forms.Padding(5);
             this.bookname.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookname.Size = new System.Drawing.Size(885, 62);
+            this.bookname.Size = new System.Drawing.Size(885, 76);
             this.bookname.Style = Sunny.UI.UIStyle.Orange;
             this.bookname.TabIndex = 2;
             this.bookname.Watermark = "           请输入书名";
@@ -184,7 +186,7 @@
             this.bookcid.Padding = new System.Windows.Forms.Padding(5);
             this.bookcid.ReadOnly = true;
             this.bookcid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookcid.Size = new System.Drawing.Size(133, 29);
+            this.bookcid.Size = new System.Drawing.Size(133, 34);
             this.bookcid.Style = Sunny.UI.UIStyle.Orange;
             this.bookcid.TabIndex = 7;
             // 
@@ -301,7 +303,7 @@
             this.bookid.Padding = new System.Windows.Forms.Padding(5);
             this.bookid.ReadOnly = true;
             this.bookid.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookid.Size = new System.Drawing.Size(133, 29);
+            this.bookid.Size = new System.Drawing.Size(133, 34);
             this.bookid.Style = Sunny.UI.UIStyle.Orange;
             this.bookid.TabIndex = 10;
             // 
@@ -319,13 +321,13 @@
             this.bookcname.Padding = new System.Windows.Forms.Padding(5);
             this.bookcname.ReadOnly = true;
             this.bookcname.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
-            this.bookcname.Size = new System.Drawing.Size(133, 29);
+            this.bookcname.Size = new System.Drawing.Size(133, 34);
             this.bookcname.Style = Sunny.UI.UIStyle.Orange;
             this.bookcname.TabIndex = 9;
             // 
             // borrowbook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1011, 650);
