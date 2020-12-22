@@ -6,7 +6,7 @@ winform C# 图书馆管理系统
 3. 数据库管理软件：Microsoft SQL Server 2008R2。
 4. 运行平台：Windows 10。
 5. 运行环境：Microsoft .NET Framework SDK v4.7
-
+6. 控件库： ![SunnyUI](https://github.com/yhuse/SunnyUI)
 ## 两类用户
 1. 管理员
 2. 普通用户
